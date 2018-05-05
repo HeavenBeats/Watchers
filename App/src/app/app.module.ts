@@ -9,12 +9,14 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { NavComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,7 @@ import { HomeComponent } from './home/home.component';
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
+      { path: "login", component: LoginComponent},
       { path: "", redirectTo:"home", pathMatch: 'full'}
     ], {useHash: true} )
   ],
