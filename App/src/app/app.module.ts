@@ -4,19 +4,22 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { PopularSeriesComponent } from './home/popularseries/popularseries.component';
+
+import { SeriesService } from './services/series.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    PopularSeriesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { LoginComponent } from './login/login.component';
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
+    SeriesService
   ],
   bootstrap: [AppComponent]
 })

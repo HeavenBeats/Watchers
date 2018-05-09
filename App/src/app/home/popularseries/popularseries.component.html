@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Popular Series</h4>
+        <hr>
+        <div class="card-block">
+            <div *ngIf="series">
+                <p *ngFor="let serie of series" >
+                    {{ serie.name }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
