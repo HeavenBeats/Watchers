@@ -70,4 +70,16 @@ TMDBrouter.route('/populartv/:page')
         var page = req.params.page;
         res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key + '&sort_by=popularity.desc&page='+ page);
     })
+
+TMDBrouter.route('/popularmovie')
+    .get((req, res) => {
+        res.redirect('https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&sort_by=popularity.desc');
+    })
+TMDBrouter.route('/popularmovie/:page')
+    .get((req, res) =>{
+        var page = req.params.page;
+        res.redirect('https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&sort_by=popularity.desc&page='+ page);
+    })
+
+    
 app.listen(port, hostname);

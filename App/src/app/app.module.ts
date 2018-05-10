@@ -10,8 +10,10 @@ import { NavComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PopularSeriesComponent } from './home/popularseries/popularseries.component';
+import { PopularMoviesComponent } from './home/popularmovies/popularmovies.component';
 
 import { SeriesService } from './services/series.service';
+import { MoviesService } from './services/movies.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { SeriesService } from './services/series.service';
     NavComponent,
     HomeComponent,
     LoginComponent,
-    PopularSeriesComponent
+    PopularSeriesComponent,
+    PopularMoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { SeriesService } from './services/series.service';
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
-    SeriesService
+    SeriesService,
+    MoviesService
   ],
   bootstrap: [AppComponent]
 })
