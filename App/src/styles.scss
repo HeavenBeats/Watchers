@@ -17,13 +17,14 @@
 .title-selector title{
     display: inline;
 }
-.scrollable-column{
-    padding-left: 0.5%;
-}
+
 .scrollable{
     height: 88vh;
     //padding-left: 0.5%;
     //padding-right: 0.5%;
+}
+.scrollable .scrollable-column{
+    padding-left: 0.5%;
 }
 .scrollable .head-scrollable{
     overflow-y: hidden;
