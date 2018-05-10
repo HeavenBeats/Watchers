@@ -12,8 +12,33 @@
     display: block;
     display: flex;
     justify-content: space-between;
+    padding: 1%;
 }
 .title-selector title{
     display: inline;
 }
-
+.scrollable-column{
+    padding-left: 0.5%;
+}
+.scrollable{
+    height: 88vh;
+    //padding-left: 0.5%;
+    //padding-right: 0.5%;
+}
+.scrollable .head-scrollable{
+    overflow-y: hidden;
+    overflow: hidden;
+}
+.scrollable .body-scrollable{
+    overflow-y: scroll;    
+    overflow: overlay;  
+    overflow-x: hidden;
+    height: 78vh;           
+    width: 97%;
+    position: absolute;
+}
+.scrollable .row-scrollable{
+    width: 100%;
+    display: inline-table;
+    table-layout: fixed;
+}
