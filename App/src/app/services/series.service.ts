@@ -14,17 +14,26 @@ export class SeriesService{
         if(!page)
             return this.http.get<RootObject>('http://localhost:4201/tmdb/populartv')
                 .map(root =>{ root.results.forEach(result => {
-                    result.title = result.name
+                    result.title = result.name;
                     result.original_title = result.original_name;
                     }); 
                     return root
                 });
         return this.http.get<RootObject>('http://localhost:4201/tmdb/populartv/'+ page)
             .map(root =>{ root.results.forEach(result => {
-                result.title = result.name
+                result.title = result.name;
                 result.original_title = result.original_name;
                 }); 
                 return root
+            });
+    }
+
+    public getSerie(id : number): Observable<ISerie>{
+        return this.http.get<ISerie>('http://localhost:4201/tmdb/serie/' + id)
+            .map(result => {
+                result.title = result.name;
+                result.original_title = result.original_name;
+                return result
             });
     }
 }

@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-header" *ngIf="serie">{{ serie.title }}</h6>
+        <div class="card-body">
+            <p *ngIf="serie">
+                {{ serie.overview }}
+            </p>
+        </div>
+    </div>
+</div>

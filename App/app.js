@@ -64,23 +64,28 @@ app.use('/tmdb', TMDBrouter);
 //series
 TMDBrouter.route('/populartv')
     .get((req, res) => {
-        res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key + '&sort_by=popularity.desc');
+        res.redirect(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&sort_by=popularity.desc`);
     })
 TMDBrouter.route('/populartv/:page')
     .get((req, res) =>{
         var page = req.params.page;
-        res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key + '&sort_by=popularity.desc&page='+ page);
+        res.redirect(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&sort_by=popularity.desc&page=${page}`);
+    })
+TMDBrouter.route('/serie/:id')
+    .get((req, res) => {
+        var id = req.params.id;
+        res.redirect(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}`)
     })
 
 //movies
 TMDBrouter.route('/popularmovie')
     .get((req, res) => {
-        res.redirect('https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&sort_by=popularity.desc');
+        res.redirect(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&sort_by=popularity.desc`);
     })
 TMDBrouter.route('/popularmovie/:page')
     .get((req, res) =>{
         var page = req.params.page;
-        res.redirect('https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&sort_by=popularity.desc&page='+ page);
+        res.redirect(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&sort_by=popularity.desc&page=${page}`);
     })
 TMDBrouter.route('/movie/:id')
     .get((req, res) =>{
