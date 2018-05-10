@@ -61,6 +61,7 @@ var api_read_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NzA1NjZkNmJ
 var TMDBrouter = express.Router();
 app.use('/tmdb', TMDBrouter);
 
+//series
 TMDBrouter.route('/populartv')
     .get((req, res) => {
         res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key + '&sort_by=popularity.desc');
@@ -71,6 +72,7 @@ TMDBrouter.route('/populartv/:page')
         res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key + '&sort_by=popularity.desc&page='+ page);
     })
 
+//movies
 TMDBrouter.route('/popularmovie')
     .get((req, res) => {
         res.redirect('https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&sort_by=popularity.desc');
@@ -79,6 +81,11 @@ TMDBrouter.route('/popularmovie/:page')
     .get((req, res) =>{
         var page = req.params.page;
         res.redirect('https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&sort_by=popularity.desc&page='+ page);
+    })
+TMDBrouter.route('/movie/:id')
+    .get((req, res) =>{
+        var id = req.params.id;
+        res.redirect(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`)
     })
 
     

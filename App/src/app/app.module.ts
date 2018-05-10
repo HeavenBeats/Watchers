@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PopularSeriesComponent } from './home/popularseries/popularseries.component';
 import { PopularMoviesComponent } from './home/popularmovies/popularmovies.component';
+import { DetailMoviesComponent } from './detail/detailmovies/detailmovies.component'
 
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
@@ -22,7 +23,8 @@ import { MoviesService } from './services/movies.service';
     HomeComponent,
     LoginComponent,
     PopularSeriesComponent,
-    PopularMoviesComponent
+    PopularMoviesComponent,
+    DetailMoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { MoviesService } from './services/movies.service';
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
       { path: "login", component: LoginComponent},
+      { path: "detailmovie/:id", component: DetailMoviesComponent},
       { path: "", redirectTo:"home", pathMatch: 'full'}
     ], {useHash: true} )
   ],
