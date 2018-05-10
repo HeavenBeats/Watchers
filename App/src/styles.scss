@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+.description-small{
+    font-size: 0.8rem;
+}
+.img-fill{
+    width: 100%;
+}
+.row-padding{
+    padding: 1%;
+}
+.title-selector{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+}
+.title-selector title{
+    display: inline;
+}
+

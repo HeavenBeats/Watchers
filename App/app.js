@@ -63,7 +63,11 @@ app.use('/tmdb', TMDBrouter);
 
 TMDBrouter.route('/populartv')
     .get((req, res) => {
-        res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key);
+        res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key + '&sort_by=popularity.desc');
     })
-
+TMDBrouter.route('/populartv/:page')
+    .get((req, res) =>{
+        var page = req.params.page;
+        res.redirect('https://api.themoviedb.org/3/tv/popular?api_key=' + api_key + '&sort_by=popularity.desc&page='+ page);
+    })
 app.listen(port, hostname);

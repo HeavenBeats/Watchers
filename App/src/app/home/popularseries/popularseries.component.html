@@ -1,12 +1,25 @@
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Popular Series</h4>
+        <div class="title-selector">
+            <h4 class="card-title title">Popular Series</h4>
+            <select name="page" id="pageSelect" [(ngModel)]="pageNr">
+                <option *ngFor="let i of TotalPages" value="{{i + 1}}">Page {{i + 1}}</option>
+            </select>
+        </div>
         <hr>
-        <div class="card-block">
-            <div *ngIf="series">
-                <p *ngFor="let serie of series" >
-                    {{ serie.name }}
-                </p>
+        <div class="card-block" *ngIf="series">
+            <div class="row row-padding" *ngFor="let serie of series" >
+                <!--<div class="col-sm-12 col-md-6">-->
+                    <div class="col-md-3">
+                        <!--image sizes: w92", "w154", "w185", "w342", "w500", "w780", or "original";-->
+                        <img class="img-fill" src="https://image.tmdb.org/t/p/w154{{serie.poster_path}}" alt="{{serie.name}} poster">
+                    </div>
+                    <div class="col-md-9">
+                        <span>{{ serie.name }}</span>
+                        <hr style="margin-top: 0%">
+                        <p class="description-small"> {{ serie.overview }}</p>
+                    </div>
+                <!--</div>-->
             </div>
         </div>
     </div>

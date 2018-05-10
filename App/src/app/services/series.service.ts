@@ -9,7 +9,9 @@ export class SeriesService{
     
     constructor(private http : HttpClient){ }
 
-    public getPopularSeries(): Observable<RootObject>{
-        return this.http.get<RootObject>('http://localhost:4201/tmdb/populartv')
+    public getPopularSeries( page? : number): Observable<RootObject>{
+        if(!page)
+            return this.http.get<RootObject>('http://localhost:4201/tmdb/populartv')
+        return this.http.get<RootObject>('http://localhost:4201/tmdb/populartv/'+ page)
     }
 }
