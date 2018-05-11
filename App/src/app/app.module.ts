@@ -13,6 +13,7 @@ import { PopularSeriesComponent } from './home/popularseries/popularseries.compo
 import { PopularMoviesComponent } from './home/popularmovies/popularmovies.component';
 import { DetailMoviesComponent } from './detail/detailmovies/detailmovies.component';
 import { DetailSeriesComponent } from './detail/detailseries/detailseries.component';
+import { SearchComponent } from './search/search.component';
 
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
@@ -26,7 +27,8 @@ import { MoviesService } from './services/movies.service';
     PopularSeriesComponent,
     PopularMoviesComponent,
     DetailMoviesComponent,
-    DetailSeriesComponent
+    DetailSeriesComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { MoviesService } from './services/movies.service';
       { path: "login", component: LoginComponent},
       { path: "detailmovie/:id", component: DetailMoviesComponent},
       { path: "detailserie/:id", component: DetailSeriesComponent},
+      { path: "search/:search", component: SearchComponent},
       { path: "", redirectTo:"home", pathMatch: 'full'}
     ], {useHash: true} )
   ],

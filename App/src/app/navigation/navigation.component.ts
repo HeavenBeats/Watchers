@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navigation',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
   //styleUrls: ['./navigation.component.scss']
 })
 export class NavComponent {
+
+  constructor(private router : Router){}
+
+  public submit(search : string){
+    this.router.navigate(['/search', search]);
+  }
 }
