@@ -14,9 +14,11 @@ import { PopularMoviesComponent } from './home/popularmovies/popularmovies.compo
 import { DetailMoviesComponent } from './detail/detailmovies/detailmovies.component';
 import { DetailSeriesComponent } from './detail/detailseries/detailseries.component';
 import { SearchComponent } from './search/search.component';
+import { SearchMoviesComponent } from './search/searchmovies/searchmovies.component';
 
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MoviesService } from './services/movies.service';
     PopularMoviesComponent,
     DetailMoviesComponent,
     DetailSeriesComponent,
-    SearchComponent
+    SearchComponent,
+    SearchMoviesComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { MoviesService } from './services/movies.service';
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     SeriesService,
-    MoviesService
+    MoviesService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

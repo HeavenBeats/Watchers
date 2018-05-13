@@ -1,0 +1,28 @@
+<div class="card">
+        <div class="card-body scrollable">
+            <div class="title-selector head-scrollable">
+                <h4 class="card-title title">Movies</h4>
+                <select name="page" id="pageSelect" [(ngModel)]="pageNr">
+                    <option *ngFor="let i of TotalPages" value="{{i + 1}}">Page {{i + 1}}</option>
+                </select>
+            </div>
+            <hr style="margin-bottom: 0%">
+            <div class="card-block body-scrollable" *ngIf="movies">
+                <div class="row row-padding" *ngFor="let movie of movies" [routerLink]="['/detailmovie', movie.id]">
+                    <!--<div class="col-sm-12 col-md-6">-->
+                        <div class="col-md-3 scrollable-column">
+                            <!--image sizes: w92", "w154", "w185", "w342", "w500", "w780", or "original";-->
+                            <img class="img-fill" src="https://image.tmdb.org/t/p/w154{{movie.poster_path}}" alt="{{movie.title}} poster">
+                        </div>
+                        <div class="col-md-9">
+                            <span>{{ movie.title }} ({{ movie.vote_average }}/10)</span>
+                            <hr style="margin-top: 0%">
+                            <p class="description-small"> {{ movie.overview }}</p>
+                        </div>
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="card-block" *ngIf="!movies">
+                no movies found
+            </div>
+        </div>
