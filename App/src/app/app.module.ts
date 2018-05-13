@@ -20,6 +20,7 @@ import { SearchSeriesComponent } from './search/searchseries/searchseries.compon
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
 import { SearchService } from './services/search.service';
+import { CastService } from './services/cast.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SearchService } from './services/search.service';
   providers: [
     SeriesService,
     MoviesService,
-    SearchService
+    SearchService,
+    CastService
   ],
   bootstrap: [AppComponent]
 })

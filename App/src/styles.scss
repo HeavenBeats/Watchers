@@ -43,9 +43,20 @@
     display: inline-table;
     table-layout: fixed;
 }
+.scrollable-horizontal-container{
+    padding-bottom: 0%;
+}
 .quote-big{
     display: block;
     font-size: 3rem;
     color: gray;
     margin-top: 15%
+}
+.cast-row{
+    overflow-y: scroll;
+    max-height: 75vh;
+}
+.cast-row .cast-element{
+    width: 7vw;
+    margin: auto;
 }

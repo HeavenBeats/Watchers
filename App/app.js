@@ -93,6 +93,13 @@ TMDBrouter.route('/movie/:id')
         res.redirect(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`)
     })
 
+//cast
+TMDBrouter.route('/cast/:id')
+    .get((req, res) =>{
+        var id = req.params.id;
+        res.redirect(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${api_key}`)
+    })
+
 //search
 TMDBrouter.route('/search/movie/:query')
     .get((req, res) =>{

@@ -1,23 +1,51 @@
 <br>
-<div class="card">
-    <div class="card-header">
-        <h1 class="card-title">{{ movie.title }}</h1>
-    </div>
-    <div class="card-body"> 
-        <div class="card-block">
-            <div class="row">
-                <div class="col-md-2">
-                        <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" alt="{{ movie.title }} poster">
-                </div> 
-                <div class="col-md-7">
-                    <p>
-                        {{ movie.overview }}
-                    </p>
-                </div>
-                <div class="col-md-3">
-                     <span class="quote-big" *ngIf="movie.tagline">"{{ movie.tagline }}"</span>
+<div class="row">
+    <div class="col-md-9">
+        <div class="card" style="max-height: 52vh">
+            <div class="card-header"  style="padding-bottom: 0%">
+                <h1 class="card-title">{{ movie.title }}</h1>
+            </div>
+            <div class="card-body"> 
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-2">
+                                <img src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" alt="{{ movie.title }} poster">
+                        </div> 
+                        <div class="col-md-10">
+                            <p style="padding: 1%">
+                                {{ movie.overview }}
+                            </p>
+                        </div>
+                        <!--<div class="col-md-3">
+                                <span class="quote-big" *ngIf="movie.tagline">"{{ movie.tagline }}"</span>
+                        </div>-->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="col-md-2">
+        <div class="card">
+            <div class="card-header" style="padding-bottom: 0%">
+                <h6 class="card-title">Cast</h6>
+            </div>
+            <div class="card-body scrollable-horizontal-container">
+                <div class="card-block">
+                    <div class="row cast-row">
+                        <div class="cast-element" *ngFor="let actor of cast">
+                                <img src="https://image.tmdb.org/t/p/w92{{actor.profile_path}}" alt="{{ actor.name }} profile" *ngIf="actor.profile_path">
+                                <p style="font-size: 0.8rem" *ngIf="actor.profile_path">
+                                    {{ actor.character }} <br>
+                                    <span style="font-size: 0.7rem"> ({{ actor.name }})</span>
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
 </div>
+
