@@ -12,7 +12,7 @@ export class NavComponent {
 
   public submit(search : string){
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
+      return true;
     }
     this.router.navigate(['/search', search]);
   }
