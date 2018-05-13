@@ -7,22 +7,11 @@ import { IResult } from '../../model/RootObject';
   templateUrl: './searchseries.component.html',
   //styleUrls: ['./searchseries.component.scss']
 })
-export class SearchSeriesComponent implements OnInit{
+export class SearchSeriesComponent{
     series : IResult[];
-    TotalPages : number[];
     page : number = 1;
 
     constructor(private Ssvc : SearchService){
-    }
-
-    ngOnInit(){
-        this.Ssvc.getSerieList().subscribe(m => {
-            this.series = m.results
-            this.TotalPages = [];
-            for(var i = 0; i<m.total_pages; i++){
-                this.TotalPages[i] = i;
-            }
-        });
     }
 
     getNewPage = () =>{
@@ -32,7 +21,7 @@ export class SearchSeriesComponent implements OnInit{
     }
 
     set pageNr(n : number){
-        if(n < this.TotalPages.length && n > 0){
+        if(n < this.Ssvc.sTotalPages.length && n > 0){
             this.page = n;
             this.getNewPage();
         }            

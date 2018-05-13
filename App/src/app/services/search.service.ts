@@ -7,6 +7,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class SearchService{
     private _search : string;
+    public movies : IResult[];
+    public mTotalPages : number[];
+    public series : IResult[];
+    public sTotalPages : number[];
 
     constructor(private http : HttpClient){}
 
@@ -16,6 +20,20 @@ export class SearchService{
 
     set Search(s : string){
         this._search = s;
+        this.getMovieList().subscribe(m => {
+            this.movies = m.results;
+            this.mTotalPages = [];
+            for(var i = 0; i<m.total_pages; i++){
+                this.mTotalPages[i] = i;
+            }
+        });
+        this.getSerieList().subscribe(s => {
+            this.series = s.results;
+            this.sTotalPages = [];
+            for(var i = 0; i<s.total_pages; i++){
+                this.sTotalPages[i] = i;
+            }
+        });
     }
 
     public getMovieList(): Observable<RootObject>{
