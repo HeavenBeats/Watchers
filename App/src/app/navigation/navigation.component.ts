@@ -11,6 +11,9 @@ export class NavComponent {
   constructor(private router : Router){}
 
   public submit(search : string){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    }
     this.router.navigate(['/search', search]);
   }
 }

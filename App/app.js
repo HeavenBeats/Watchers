@@ -99,6 +99,11 @@ TMDBrouter.route('/search/movie/:query')
         var query = req.params.query;
         res.redirect(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}`)
     })
+TMDBrouter.route('/search/serie/:query')
+    .get((req, res) =>{
+        var query = req.params.query;
+        res.redirect(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${query}`)
+    })
 
     
 app.listen(port, hostname);
