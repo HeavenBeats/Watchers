@@ -2,7 +2,7 @@
         <div class="card-body scrollable">
             <div class="title-selector head-scrollable">
                 <h4 class="card-title title">Movies</h4>
-                <select name="page" id="pageSelect" [(ngModel)]="pageNr">
+                <select name="page" [(ngModel)]="pageNr">
                     <option *ngFor="let i of Ssvc.mTotalPages" value="{{i + 1}}">Page {{i + 1}}</option>
                 </select>
             </div>

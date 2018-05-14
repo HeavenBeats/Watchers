@@ -32,7 +32,7 @@ export class PopularMoviesComponent implements OnInit{
     }
 
     set pageNr(n : number){
-        if(n < this.TotalPages.length && n > 0){
+        if(n < this.TotalPages.length + 1 && n > 0){
             this.page = n;
             this.getNewPage();
         }            

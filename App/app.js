@@ -106,11 +106,24 @@ TMDBrouter.route('/search/movie/:query')
         var query = req.params.query;
         res.redirect(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}`)
     })
+TMDBrouter.route('/search/movie/:query/:page')
+    .get((req, res) =>{
+        var query = req.params.query;
+        var page = req.params.page;
+        res.redirect(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}&page=${page}`)
+    })
 TMDBrouter.route('/search/serie/:query')
     .get((req, res) =>{
         var query = req.params.query;
         res.redirect(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${query}`)
     })
-
+TMDBrouter.route('/search/serie/:query/:page')
+    .get((req, res) =>{
+        var query = req.params.query;
+        var page = req.params.page;
+        console.log("query: " + query);
+        console.log("page: " + page);
+        res.redirect(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${query}&page=${page}`)
+    })
     
 app.listen(port, hostname);

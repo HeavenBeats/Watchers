@@ -36,15 +36,23 @@ export class SearchService{
         });
     }
 
-    public getMovieList(): Observable<RootObject>{
-        return this.http.get<RootObject>('http://localhost:4201/tmdb/search/movie/'+ this.Search);
+    public getMovieList(page? : number): Observable<RootObject>{
+        if(!page)
+            return this.http.get<RootObject>('http://localhost:4201/tmdb/search/movie/'+ this.Search);
+        return this.http.get<RootObject>('http://localhost:4201/tmdb/search/movie/'+ this.Search + '/' + page);
     }
 
-    public getSerieList(){
-        return this.http.get<RootObject>('http://localhost:4201/tmdb/search/serie/'+ this.Search)
-        .map(root => {root.results.forEach(result => {
-            result.title = result.name;
-            result.original_title = result.original_name;
-        }); return root});
+    public getSerieList(page? : number){
+        if(!page)
+            return this.http.get<RootObject>('http://localhost:4201/tmdb/search/serie/'+ this.Search)
+                .map(root => {root.results.forEach(result => {
+                    result.title = result.name;
+                    result.original_title = result.original_name;
+                }); return root});
+        return this.http.get<RootObject>('http://localhost:4201/tmdb/search/serie/'+ this.Search + '/' + page)
+            .map(root => {root.results.forEach(result => {
+                result.title = result.name;
+                result.original_title = result.original_name;
+            }); return root});
     }
 }

@@ -8,20 +8,19 @@ import { IResult } from '../../model/RootObject';
   //styleUrls: ['./searchmovies.component.scss']
 })
 export class SearchMoviesComponent{
-    movies : IResult[];
     page : number = 1;
 
     constructor(private Ssvc : SearchService){
     }
 
     getNewPage = () =>{
-        this.Ssvc.getMovieList().subscribe(d => { //page toevoegen
-            this.movies = d.results;
+        this.Ssvc.getMovieList(this.page).subscribe(d => { 
+            this.Ssvc.movies = d.results;
         });
     }
 
     set pageNr(n : number){
-        if(n < this.Ssvc.mTotalPages.length && n > 0){
+        if(n < this.Ssvc.mTotalPages.length + 1 && n > 0){
             this.page = n;
             this.getNewPage();
         }            
