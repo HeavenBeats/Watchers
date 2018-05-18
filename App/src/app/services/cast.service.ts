@@ -8,7 +8,7 @@ export class CastService{
     
     constructor(private http : HttpClient){ }
 
-    public getCredits(id : number): Observable<ICredit>{
-        return this.http.get<ICredit>('http://localhost:4201/tmdb/cast/'+ id);
+    public getMovieCredits(id : number): Observable<ICredit>{
+        return this.http.get<ICredit>('http://localhost:4201/tmdb/movie/'+ id +'/cast');
     }
 }

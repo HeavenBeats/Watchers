@@ -15,8 +15,6 @@ export class DetailMoviesComponent implements OnInit {
   movie: IMovie;
   cast: ICast[];
   color: String = "#FFFFFF";
-  rating: number;
-  @ViewChild('mdbChart') chart;
 
   constructor(private route: ActivatedRoute, private Msvc: MoviesService, private Csvc: CastService) {
   }
@@ -43,8 +41,6 @@ export class DetailMoviesComponent implements OnInit {
         this.color = "#ff1125"
       }
     });
-    this.Csvc.getCredits(this.id).subscribe(c => this.cast = c.cast);
+    this.Csvc.getMovieCredits(this.id).subscribe(c => this.cast = c.cast);
   }
-
-  
 }

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-//html{
-  //  overflow-x: hidden;
-//}
+html{
+    overflow-x: hidden;
+}
 .description-small{
     font-size: 0.8rem;
 }
@@ -24,8 +24,6 @@
 
 .scrollable{
     height:86vh;
-    //padding-left: 0.5%;
-    //padding-right: 0.5%;
 }
 .scrollable .scrollable-column{
     padding-left: 0.5%;
