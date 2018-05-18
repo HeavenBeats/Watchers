@@ -28,7 +28,7 @@ export interface IMovie {
     vote_count: number;
 }
 
-interface Spokenlanguage {
+export interface Spokenlanguage {
     iso_639_1: string;
     name: string;
 }

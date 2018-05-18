@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { RootObject } from '../model/RootObject';
 import { IMovie } from '../model/Movie'
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MoviesService{

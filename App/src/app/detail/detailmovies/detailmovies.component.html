@@ -12,13 +12,39 @@
                                 <img class="img-fill" style="max-height: 48vh" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" alt="{{ movie.title }} poster">
                         </div> 
                         <div class="col-md-10">
-                            <p style="padding: 1%">
+                            <div style="padding: 1%">
+                                Overview
+                                <hr style="margin-top: 0%">
                                 {{ movie.overview }}
-                            </p>
+                            </div>
                         </div>
                         <!--<div class="col-md-3">
                                 <span class="quote-big" *ngIf="movie.tagline">"{{ movie.tagline }}"</span>
                         </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" style="padding-bottom: 0%">
+                        <h6 class="card-title">Extra info:</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-block">
+                            <span *ngIf="movie.release_date">Release date: {{ movie.release_date }}</span>
+                            <span *ngIf="movie.runtime"><br>Total time: {{ movie.runtime }} minutes</span>
+                            <div *ngIf="movie.spoken_languages.length > 1" style="margin: 0%; display: inline;">
+                                <span *ngIf="movie.spoken_languages"><br>Spoken languages: </span>
+                                <ul style="margin-bottom: 0%">
+                                    <li *ngFor="let lang of movie.spoken_languages">{{ lang.name }}</li>
+                                </ul>
+                            </div>
+                            <span *ngIf="movie.homepage"><br>Home page: <a href="movie.homepage">{{ movie.homepage }}</a></span>
+                            <span *ngIf="movie.belongs_to_collection"><br>From movie collection: {{ movie.belongs_to_collection.name }}</span>
+                        </div>
                     </div>
                 </div>
             </div>

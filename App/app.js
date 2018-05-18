@@ -122,7 +122,7 @@ TMDBrouter.route('/search/serie/:query/:page')
         var query = req.params.query;
         var page = req.params.page;
         console.log("query: " + query);
-        console.log("page: " + page);
+        console.log("page: " + page); 
         res.redirect(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${query}&page=${page}`)
     })
     
