@@ -57,6 +57,7 @@ app.get('/redirectFromGoogle', (req, res, next) =>{
 //TMDB API
 var api_key = '770566d6ba890b029a0d3a76b450f680';
 var api_read_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NzA1NjZkNmJhODkwYjAyOWEwZDNhNzZiNDUwZjY4MCIsInN1YiI6IjVhZWM1MjUxYzNhMzY4NzIwNDAwODM1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Xz4jkHFBUWLgbLEqiEVkb4u3eafM-seKpeKdyRKFeYg'
+var api_base_url = 'https://api.themoviedb.org/3'
 
 var TMDBrouter = express.Router();
 app.use('/tmdb', TMDBrouter);
@@ -64,64 +65,62 @@ app.use('/tmdb', TMDBrouter);
 //series
 TMDBrouter.route('/populartv')
     .get((req, res) => {
-        res.redirect(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&sort_by=popularity.desc`);
+        res.redirect(`${api_base_url}/tv/popular?api_key=${api_key}&sort_by=popularity.desc`);
     })
 TMDBrouter.route('/populartv/:page')
     .get((req, res) =>{
         var page = req.params.page;
-        res.redirect(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}&sort_by=popularity.desc&page=${page}`);
+        res.redirect(`${api_base_url}/tv/popular?api_key=${api_key}&sort_by=popularity.desc&page=${page}`);
     })
 TMDBrouter.route('/serie/:id')
     .get((req, res) => {
         var id = req.params.id;
-        res.redirect(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}`)
+        res.redirect(`${api_base_url}/tv/${id}?api_key=${api_key}`)
     })
 
 //movies
 TMDBrouter.route('/popularmovie')
     .get((req, res) => {
-        res.redirect(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&sort_by=popularity.desc`);
+        res.redirect(`${api_base_url}/movie/popular?api_key=${api_key}&sort_by=popularity.desc`);
     })
 TMDBrouter.route('/popularmovie/:page')
     .get((req, res) =>{
         var page = req.params.page;
-        res.redirect(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&sort_by=popularity.desc&page=${page}`);
+        res.redirect(`${api_base_url}/movie/popular?api_key=${api_key}&sort_by=popularity.desc&page=${page}`);
     })
 TMDBrouter.route('/movie/:id')
     .get((req, res) =>{
         var id = req.params.id;
-        res.redirect(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`)
+        res.redirect(`${api_base_url}/movie/${id}?api_key=${api_key}`)
     })
 TMDBrouter.route('/movie/:id/cast')
     .get((req, res) =>{
         var id = req.params.id;
-        res.redirect(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${api_key}`)
+        res.redirect(`${api_base_url}/movie/${id}/credits?api_key=${api_key}`)
     })
 
 //search
 TMDBrouter.route('/search/movie/:query')
     .get((req, res) =>{
         var query = req.params.query;
-        res.redirect(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}`)
+        res.redirect(`${api_base_url}/search/movie?api_key=${api_key}&query=${query}`)
     })
 TMDBrouter.route('/search/movie/:query/:page')
     .get((req, res) =>{
         var query = req.params.query;
         var page = req.params.page;
-        res.redirect(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}&page=${page}`)
+        res.redirect(`${api_base_url}/search/movie?api_key=${api_key}&query=${query}&page=${page}`)
     })
 TMDBrouter.route('/search/serie/:query')
     .get((req, res) =>{
         var query = req.params.query;
-        res.redirect(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${query}`)
+        res.redirect(`${api_base_url}/search/tv?api_key=${api_key}&query=${query}`)
     })
 TMDBrouter.route('/search/serie/:query/:page')
     .get((req, res) =>{
         var query = req.params.query;
         var page = req.params.page;
-        console.log("query: " + query);
-        console.log("page: " + page); 
-        res.redirect(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${query}&page=${page}`)
+        res.redirect(`${api_base_url}/search/tv?api_key=${api_key}&query=${query}&page=${page}`)
     })
     
 app.listen(port, hostname);
