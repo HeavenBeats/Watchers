@@ -30,7 +30,8 @@
     "font-awesome": "^4.7.0",
     "@agm/core": "1.0.0-beta.2",
     "mathjs": "^3.18.1",
-    "moment": "^2.20.1"
+    "moment": "^2.20.1",
+    "angular-svg-round-progressbar": "1.1.1"
   },
   "devDependencies": {
     "@angular/cli": "1.4.5",

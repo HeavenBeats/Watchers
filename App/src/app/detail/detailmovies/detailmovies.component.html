@@ -1,77 +1,95 @@
 <br>
 <div class="row">
-    <div class="col-md-9">
-        <div class="card" style="max-height: 52vh">
-            <div class="card-header"  style="padding-bottom: 0%">
-                <h1 class="card-title">{{ movie.title }}</h1>
+  <div class="col-md-9">
+    <div class="card" style="max-height: 52vh">
+      <div class="card-header" style="padding-bottom: 0%">
+        <h1 class="card-title">{{ movie.title }}</h1>
+      </div>
+      <div class="card-body">
+        <div class="card-block">
+          <div class="row">
+            <div class="col-md-2">
+              <img class="img-fill" style="max-height: 48vh" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" alt="{{ movie.title }} poster">
             </div>
-            <div class="card-body"> 
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-md-2">
-                                <img class="img-fill" style="max-height: 48vh" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}" alt="{{ movie.title }} poster">
-                        </div> 
-                        <div class="col-md-10">
-                            <div style="padding: 1%">
-                                Overview
-                                <hr style="margin-top: 0%">
-                                {{ movie.overview }}
-                            </div>
-                        </div>
-                        <!--<div class="col-md-3">
+            <div class="col-md-10">
+              <div style="padding: 1%">
+                Overview
+                <hr style="margin-top: 0%"> {{ movie.overview }}
+              </div>
+            </div>
+            <!--<div class="col-md-3">
                                 <span class="quote-big" *ngIf="movie.tagline">"{{ movie.tagline }}"</span>
                         </div>-->
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header" style="padding-bottom: 0%">
-                        <h6 class="card-title">Extra info:</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-block">
-                            <span *ngIf="movie.release_date">Release date: {{ movie.release_date }}</span>
-                            <span *ngIf="movie.runtime"><br>Total time: {{ movie.runtime }} minutes</span>
-                            <div *ngIf="movie.spoken_languages.length > 1" style="margin: 0%; display: inline;">
-                                <span *ngIf="movie.spoken_languages"><br>Spoken languages: </span>
-                                <ul style="margin-bottom: 0%">
-                                    <li *ngFor="let lang of movie.spoken_languages">{{ lang.name }}</li>
-                                </ul>
-                            </div>
-                            <span *ngIf="movie.homepage"><br>Home page: <a href="movie.homepage">{{ movie.homepage }}</a></span>
-                            <span *ngIf="movie.belongs_to_collection"><br>From movie collection: {{ movie.belongs_to_collection.name }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="col-md-2">
+    <br>
+    <div class="row">
+      <div class="col-md-8">
         <div class="card">
-            <div class="card-header" style="padding-bottom: 0%">
-                <h6 class="card-title">Cast</h6>
+          <div class="card-header" style="padding-bottom: 0%">
+            <h6 class="card-title">Extra info:</h6>
+          </div>
+          <div class="card-body">
+            <div class="card-block">
+              <span *ngIf="movie.release_date">Release date: {{ movie.release_date }}</span>
+              <span *ngIf="movie.runtime">
+                <br>Total time: {{ movie.runtime }} minutes</span>
+              <div *ngIf="movie.spoken_languages.length" style="margin: 0%; display: inline;">
+                <span>
+                  <br>Spoken languages: </span>
+                <ul style="margin-bottom: 0%">
+                  <li *ngFor="let lang of movie.spoken_languages">{{ lang.name }}</li>
+                </ul>
+              </div>
+              <span *ngIf="movie.homepage">
+                <br *ngIf="!movie.spoken_languages.length">Home page:
+                <a href="movie.homepage">{{ movie.homepage }}</a>
+              </span>
+              <span *ngIf="movie.belongs_to_collection">
+                <br>From movie collection: {{ movie.belongs_to_collection.name }}</span>
             </div>
-            <div class="card-body scrollable-horizontal-container">
-                <div class="card-block">
-                    <div class="row cast-row">
-                        <div class="cast-element" *ngFor="let actor of cast">
-                                <img src="https://image.tmdb.org/t/p/w92{{actor.profile_path}}" alt="{{ actor.name }} profile" *ngIf="actor.profile_path">
-                                <p style="font-size: 0.8rem" *ngIf="actor.profile_path">
-                                    {{ actor.character }} <br>
-                                    <span style="font-size: 0.7rem"> ({{ actor.name }})</span>
-                                </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header" style="padding-bottom: 0%">
+            <h6 class="card-title">Rating</h6>
+          </div>
+          <div class="card-body">
+            <div class="card-block" class="center-parent">
+              <div class="center">{{ movie.vote_average }}/10</div>
+              <round-progress current="{{ movie.vote_average }}" [max]="10" [radius]="70" color={{color}} [rounded]="true"></round-progress>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-1">
+  </div>
+  <div class="col-md-2">
+    <div class="card">
+      <div class="card-header" style="padding-bottom: 0%">
+        <h6 class="card-title">Cast</h6>
+      </div>
+      <div class="card-body scrollable-horizontal-container">
+        <div class="card-block">
+          <div class="row cast-row">
+            <div class="cast-element" *ngFor="let actor of cast">
+              <img src="https://image.tmdb.org/t/p/w92{{actor.profile_path}}" alt="{{ actor.name }} profile" *ngIf="actor.profile_path">
+              <p style="font-size: 0.8rem" *ngIf="actor.profile_path">
+                {{ actor.character }}
+                <br>
+                <span style="font-size: 0.7rem"> ({{ actor.name }})</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">
 
-    </div>
+  </div>
 </div>
-

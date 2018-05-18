@@ -4,6 +4,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './navigation/navigation.component';
@@ -40,6 +41,7 @@ import { CastService } from './services/cast.service';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    RoundProgressModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
