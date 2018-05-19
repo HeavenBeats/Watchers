@@ -17,9 +17,6 @@
                 <hr style="margin-top: 0%"> {{ movie.overview }}
               </div>
             </div>
-            <!--<div class="col-md-3">
-                                <span class="quote-big" *ngIf="movie.tagline">"{{ movie.tagline }}"</span>
-                        </div>-->
           </div>
         </div>
       </div>
@@ -59,9 +56,9 @@
             <h6 class="card-title">Rating</h6>
           </div>
           <div class="card-body">
-            <div class="card-block" class="center-parent">
-              <div class="center">{{ movie.vote_average }}/10</div>
-              <round-progress current="{{ movie.vote_average }}" [max]="10" [radius]="70" color={{color}} [rounded]="true"></round-progress>
+            <div class="card-block" class="progresscenter-parent">
+              <div class="progresscenter">{{ movie.vote_average }}/10</div>
+              <round-progress current="{{ movie.vote_average }}" [max]="10" [radius]="60" color={{color}} [rounded]="true"></round-progress>
             </div>
           </div>
         </div>

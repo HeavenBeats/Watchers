@@ -11,4 +11,8 @@ export class CastService{
     public getMovieCredits(id : number): Observable<ICredit>{
         return this.http.get<ICredit>('http://localhost:4201/tmdb/movie/'+ id +'/cast');
     }
+
+    public getSerieCredits(id : number): Observable<ICredit>{
+        return this.http.get<ICredit>('http://localhost:4201/tmdb/serie/'+ id +'/cast');
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 import { CastService } from '../../services/cast.service';
@@ -34,10 +34,10 @@ export class DetailMoviesComponent implements OnInit {
       if (m.vote_average > 6) {
         this.color = "#1de220"
       }
-      if (m.vote_average < 6) {
+      if (m.vote_average <= 6) {
         this.color = "#ff8f0f"
       }
-      if (m.vote_average < 4) {
+      if (m.vote_average <= 4) {
         this.color = "#ff1125"
       }
     });
