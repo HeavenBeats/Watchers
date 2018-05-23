@@ -1,5 +1,5 @@
+<div *ngIf="serie" style='background: url("https://image.tmdb.org/t/p/original{{serie.backdrop_path}}"); height: 100vh;'>
 <br>
-<div *ngIf="serie">
 <div class="row">
   <div class="col-md-9">
     <div class="card" style="max-height: 52vh">
@@ -32,8 +32,9 @@
           <div class="card-body">
             <div class="card-block">
               <span *ngIf="serie.first_air_date">First air date: {{ serie.first_air_date }}</span>
+              <span *ngIf="serie.last_air_date">Last air date: {{ serie.last_air_date }}</span>
               <span *ngIf="serie.episode_run_time">
-                <br>Episode time: {{ serie.episode_run_time[0] }} minutes</span>
+                <br *ngIf="serie.last_air_date">Episode time: {{ serie.episode_run_time[0] }} minutes</span>
               <span *ngIf="serie.homepage">
                 <br *ngIf="serie.episode_run_time">Home page:
                 <a href="serie.homepage">{{ serie.homepage }}</a>

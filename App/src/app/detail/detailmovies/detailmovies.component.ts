@@ -8,7 +8,7 @@ import { ICast } from '../../model/credit';
 @Component({
   selector: 'detail-movies',
   templateUrl: './detailmovies.component.html',
-  styleUrls: ['./detailmovies.component.scss']
+  //styleUrls: ['./detailmovies.component.scss']
 })
 export class DetailMoviesComponent implements OnInit {
   id: number;
