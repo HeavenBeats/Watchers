@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SeriesService } from '../../../services/series.service'
 
 @Component({
     selector: 'list-episodes',
