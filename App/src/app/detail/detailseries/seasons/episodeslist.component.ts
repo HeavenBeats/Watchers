@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SeriesService } from '../../../services/series.service'
+import { SeasonsService } from '../../../services/seasons.service'
 
 @Component({
     selector: 'list-episodes',
@@ -7,5 +7,7 @@ import { SeriesService } from '../../../services/series.service'
     //styleUrls: ['./episodeslist.component.scss']
 })
 export class EpisodesListComponent{
+
+    constructor(private SeasonSvc : SeasonsService){}
 
 }

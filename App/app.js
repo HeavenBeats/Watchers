@@ -83,6 +83,12 @@ TMDBrouter.route('/serie/:id/cast')
     var id = req.params.id;
     res.redirect(`${api_base_url}/tv/${id}/credits?api_key=${api_key}`)
   })
+TMDBrouter.route('/serie/:id/season/:season')
+  .get((req, res) =>{
+      var id = req.params.id;
+      var season = req.params.season;
+      res.redirect(`${api_base_url}/tv/${id}/season/${season}?api_key=${api_key}`)
+  })
 
 //movies
 TMDBrouter.route('/popularmovie')

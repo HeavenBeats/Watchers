@@ -1,22 +1,20 @@
 <div class="card">
-        <div class="card-body scrollable">
-            <div class="title-selector head-scrollable">
-                <h4 class="card-title title">Seasons</h4>
-            </div>
-            <hr style="margin-bottom: 0%">
-            <div class="card-block body-scrollable" *ngIf="seasons">
-                <div class="row row-padding" *ngFor="let season of seasons">
-                        <div class="col-md-3 scrollable-column">
-                            <!--image sizes: w92", "w154", "w185", "w342", "w500", "w780", or "original";-->
-                            <img class="img-fill" src="https://image.tmdb.org/t/p/w154{{season.poster_path}}" alt="{{season.name}} poster">
-                        </div>
-                        <div class="col-md-9">
-                            <span>{{ season.name }}</span>
-                            <hr style="margin-top: 0%">
-                            <p class="description-small"> {{ season.overview }}</p>
-                        </div>
-                    <!--</div>-->
+    <div class="card-body scrollable">
+        <div class="title-selector head-scrollable">
+            <h4 class="card-title title">Seasons</h4>
+        </div>
+        <hr style="margin-bottom: 0%">
+        <div class="card-block body-scrollable" *ngIf="seasons">
+            <div class="row row-padding" *ngFor="let season of seasons; let i = index" (click)="showEpisodes(i)">
+                <div class="col-md-3 scrollable-column">
+                    <img class="img-fill" src="https://image.tmdb.org/t/p/w154{{season.poster_path}}" alt="{{season.name}} poster">
+                </div>
+                <div class="col-md-9">
+                    <span>{{ season.name }}</span>
+                    <hr style="margin-top: 0%">
+                    <p class="description-small"> {{ season.overview }}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
