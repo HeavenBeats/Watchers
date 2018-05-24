@@ -17,6 +17,10 @@ import { DetailSeriesComponent } from './detail/detailseries/detailseries.compon
 import { SearchComponent } from './search/search.component';
 import { SearchMoviesComponent } from './search/searchmovies/searchmovies.component';
 import { SearchSeriesComponent } from './search/searchseries/searchseries.component';
+import { SeasonsComponent } from './detail/detailseries/seasons/seasons.component';
+import { SeasonsListComponent } from './detail/detailseries/seasons/seasonslist.component';
+import { EpisodesListComponent } from './detail/detailseries/seasons/episodeslist.component';
+import { DetailEpisodeComponent } from './detail/detailseries/seasons/detailepisode.component';
 
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
@@ -35,7 +39,11 @@ import { CastService } from './services/cast.service';
     DetailSeriesComponent,
     SearchComponent,
     SearchMoviesComponent,
-    SearchSeriesComponent
+    SearchSeriesComponent,
+    SeasonsComponent,
+    SeasonsListComponent,
+    EpisodesListComponent,
+    DetailEpisodeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +56,7 @@ import { CastService } from './services/cast.service';
       { path: "login", component: LoginComponent},
       { path: "detailmovie/:id", component: DetailMoviesComponent},
       { path: "detailserie/:id", component: DetailSeriesComponent},
+      { path: "detailserie/:id/seasons", component: SeasonsComponent},
       { path: "search/:search", component: SearchComponent},
       { path: "", redirectTo:"home", pathMatch: 'full'}
     ], {useHash: true} )
