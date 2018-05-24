@@ -4,7 +4,7 @@ export interface ICredit {
     crew: ICrew[];
 }
 
-interface ICrew {
+export interface ICrew {
     credit_id: string;
     department: string;
     gender: number;
