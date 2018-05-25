@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="serie" style='background: url("https://image.tmdb.org/t/p/original{{serie.backdrop_path}}"); height: 100vh;'>
+<div class="container-fluid" *ngIf="serie" [style.background-image]='getBackground()' style="height: 92vh; background-size: cover">
   <br>
   <div class="row">
     <div class="col-md-9">

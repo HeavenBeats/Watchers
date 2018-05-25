@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="movie" style='background-image: url("https://image.tmdb.org/t/p/original{{movie.backdrop_path}}"); height: 100vh;'>
+<div class="container-fluid" *ngIf="movie" [style.background-image]='getBackground()' style="height: 92vh; background-size: cover">
 <br>
 <div class="row">
   <div class="col-md-9">

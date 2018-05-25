@@ -4,6 +4,7 @@ import { MoviesService } from '../../services/movies.service';
 import { CastService } from '../../services/cast.service';
 import { IMovie, Spokenlanguage } from '../../model/Movie';
 import { ICast } from '../../model/credit';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'detail-movies',
@@ -16,7 +17,7 @@ export class DetailMoviesComponent implements OnInit {
   cast: ICast[];
   color: String = "#FFFFFF";
 
-  constructor(private route: ActivatedRoute, private Msvc: MoviesService, private Csvc: CastService) {
+  constructor(private route: ActivatedRoute, private Msvc: MoviesService, private Csvc: CastService, private sanitizer : DomSanitizer) {
   }
 
   ngOnInit() {
@@ -42,5 +43,9 @@ export class DetailMoviesComponent implements OnInit {
       }
     });
     this.Csvc.getMovieCredits(this.id).subscribe(c => this.cast = c.cast);
+  }
+
+  public getBackground(){
+    return this.sanitizer.bypassSecurityTrustStyle(`url("https://image.tmdb.org/t/p/original${this.movie.backdrop_path}")`)
   }
 }
