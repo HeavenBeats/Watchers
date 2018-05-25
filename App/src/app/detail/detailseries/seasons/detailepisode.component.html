@@ -5,7 +5,7 @@
     </div>
     <hr style="margin-bottom: 0%">
     <div class="card-block body-scrollable" *ngIf="SeasonSvc.episode">
-      <img class="img-fill" src="https://image.tmdb.org/t/p/w342{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster">
+      <img class="img-fill" src="https://image.tmdb.org/t/p/w500{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster" style="margin-left: -2em">
       <br><br>
       <h6>{{SeasonSvc.episode.name}}</h6>
       <hr style="margin-bottom: 0%">
@@ -13,8 +13,9 @@
         {{SeasonSvc.episode.overview}}
       </div>
       <br>
+      <h6 *ngIf="SeasonSvc.episode.guest_stars.length >= 1">Guest stars</h6>
       <div class="horizontal-scroll">
-        <div *ngFor="let guest of SeasonSvc.episode.guest_stars" style="display: inline-block; padding: 1%">
+        <div class="element" *ngFor="let guest of SeasonSvc.episode.guest_stars" style="display: inline-block; padding: 1%">
           <img src="https://image.tmdb.org/t/p/w92{{guest.profile_path}}" alt="{{ guest.name }} profile" *ngIf="guest.profile_path">
           <p style="font-size: 0.8rem" *ngIf="guest.profile_path">
             {{ guest.character }}

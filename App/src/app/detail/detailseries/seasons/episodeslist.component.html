@@ -6,10 +6,7 @@
     <hr style="margin-bottom: 0%">
     <div class="card-block body-scrollable" *ngIf="SeasonSvc.episodes">
       <div class="row row-padding" *ngFor="let episode of SeasonSvc.episodes; let i = index" (click)="showEpisode(i)">
-        <div class="col-md-3 scrollable-column">
-          <img class="img-fill" src="https://image.tmdb.org/t/p/w154{{episode.still_path}}" alt="{{episode.name}} poster">
-        </div>
-        <div class="col-md-9">
+        <div class="col-md-12">
           <span>{{ episode.name }}</span>
           <hr style="margin-top: 0%">
           <p class="description-small"> {{ episode.overview }}</p>

@@ -10,7 +10,7 @@ html{
     max-height: 100%;
 }
 .row-padding{
-    padding: 1%;
+    padding: 2%;
 }
 .title-selector{
     display: block;
@@ -49,8 +49,14 @@ html{
     padding-bottom: 0%;
 }
 .horizontal-scroll{
+    display: flex;
+    align-items: flex-start;
     overflow: auto;
     white-space: nowrap;
+}
+.horizontal-scroll .element{
+    width: 7vw;
+    white-space: normal;
 }
 .quote-big{
     display: block;
