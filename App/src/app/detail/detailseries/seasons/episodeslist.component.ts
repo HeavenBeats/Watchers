@@ -13,4 +13,8 @@ export class EpisodesListComponent implements OnInit{
     ngOnInit(){
         this.SeasonSvc.episodes = null;
     }
+
+    public showEpisode(episode : number){
+        this.SeasonSvc.setEpisode(episode);
+    }
 }

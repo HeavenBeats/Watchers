@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body scrollable">
-        <div class="title-selector head-scrollable">
+        <div class="head-scrollable">
             <h4 class="card-title title">Episodes</h4>
         </div>
         <hr style="margin-bottom: 0%">
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="!SeasonSvc.episodes">
+        <div class="card-block" *ngIf="!SeasonSvc.episodes">
             <div style="text-align: center; vertical-align: center">
                 please select a season
             </div>
