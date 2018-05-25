@@ -48,6 +48,10 @@ html{
 .scrollable-horizontal-container{
     padding-bottom: 0%;
 }
+.horizontal-scroll{
+    overflow: auto;
+    white-space: nowrap;
+}
 .quote-big{
     display: block;
     font-size: 3rem;
