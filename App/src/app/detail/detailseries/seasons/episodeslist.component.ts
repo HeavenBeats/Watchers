@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SeasonsService } from '../../../services/seasons.service'
 
 @Component({
@@ -6,8 +6,11 @@ import { SeasonsService } from '../../../services/seasons.service'
     templateUrl: './episodeslist.component.html',
     //styleUrls: ['./episodeslist.component.scss']
 })
-export class EpisodesListComponent{
+export class EpisodesListComponent implements OnInit{
 
     constructor(private SeasonSvc : SeasonsService){}
 
+    ngOnInit(){
+        this.SeasonSvc.episodes = null;
+    }
 }
