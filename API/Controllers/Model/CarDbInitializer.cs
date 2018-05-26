@@ -112,6 +112,18 @@ namespace Model{
                     StartingPrice = 99900,
                     Manufacturer = Nissan
                 };
+
+                context.Manufacturers.Add(Ford);
+                context.Manufacturers.Add(BMW);
+                context.Manufacturers.Add(Nissan);
+                context.Cars.Add(Raptor);
+                context.Cars.Add(Mustang);
+                context.Cars.Add(i8);
+                context.Cars.Add(M4);
+                context.Cars.Add(i3);
+                context.Cars.Add(Navara);
+                context.Cars.Add(GT_R);
+                context.SaveChanges();
             }
         }
     }
