@@ -43,7 +43,8 @@ namespace Model{
                     FuelConsumption = 15.6,
                     PowerSource = PowerSource.Benzine,
                     Seats = 5,
-                    StartingPrice = 42889
+                    StartingPrice = 42889,
+                    Manufacturer = Ford
                 };
 
                 var Mustang = new Car(){
@@ -53,7 +54,8 @@ namespace Model{
                     FuelConsumption = 12.4,
                     PowerSource = PowerSource.Benzine,
                     Seats = 2,
-                    StartingPrice = 25220
+                    StartingPrice = 25220,
+                    Manufacturer = Ford
                 };
 
                 var i8 = new Car(){
@@ -63,7 +65,8 @@ namespace Model{
                     FuelConsumption = 1.9,
                     PowerSource = PowerSource.Hybrid,
                     Seats = 2,
-                    StartingPrice = 148500
+                    StartingPrice = 148500,
+                    Manufacturer = BMW
                 };
 
                 var M4 = new Car(){
@@ -73,7 +76,8 @@ namespace Model{
                     FuelConsumption = 8.5,
                     PowerSource = PowerSource.Diesel,
                     Seats = 4,
-                    StartingPrice = 58790
+                    StartingPrice = 58790,
+                    Manufacturer = BMW
                 };
 
                 var i3 = new Car(){
@@ -83,7 +87,8 @@ namespace Model{
                     FuelConsumption = 0,
                     PowerSource = PowerSource.Electric,
                     Seats = 5,
-                    StartingPrice = 38800
+                    StartingPrice = 38800,
+                    Manufacturer = BMW
                 };
 
                 var Navara = new Car(){
@@ -93,7 +98,8 @@ namespace Model{
                     FuelConsumption = 6.4,
                     PowerSource = PowerSource.Diesel,
                     Seats = 5,
-                    StartingPrice = 33585
+                    StartingPrice = 33585,
+                    Manufacturer = Nissan
                 };
 
                 var GT_R = new Car(){
@@ -103,7 +109,8 @@ namespace Model{
                     FuelConsumption = 11.8,
                     PowerSource = PowerSource.Benzine,
                     Seats = 2,
-                    StartingPrice = 99900
+                    StartingPrice = 99900,
+                    Manufacturer = Nissan
                 };
             }
         }

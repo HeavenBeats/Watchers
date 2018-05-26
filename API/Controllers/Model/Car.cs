@@ -7,6 +7,7 @@ namespace Model{
         public PowerSource PowerSource { get; set; }
         public int Seats { get; set; }                  //max amount of passengers
         public int StartingPrice { get; set; }
+        public Manufacturer Manufacturer { get; set; }
     }
 
     public enum PowerSource{

@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
 namespace Model{
     public class Manufacturer{
         public string Name { get; set; }
@@ -7,5 +10,7 @@ namespace Model{
         public double LastYearRevenue { get; set; }    //revenue from last year in millions (€)
         public double LastYearProfit { get; set; }     //profit from last year in millions (€)
         public string HomePage { get; set; }
+        [JsonIgnore]
+        public ICollection<Car> Cars { get; set; }
     }
 }
