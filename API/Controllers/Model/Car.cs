@@ -1,5 +1,6 @@
 namespace Model{
     public class Car{
+        public int Id { get; set; }
         public string Model { get; set; }
         public int HorsePower { get; set; }
         public string Engine { get; set; }
