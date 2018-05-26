@@ -25,7 +25,7 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CarDBContext>(
+            services.AddDbContext<CarDbContext>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")
                 )
@@ -34,7 +34,7 @@ namespace API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, CarDbContext carContext)
         {
             if (env.IsDevelopment())
             {
@@ -42,6 +42,8 @@ namespace API
             }
 
             app.UseMvc();
+
+            CarDbInitializer.Initialize(carContext);
         }
     }
 }
