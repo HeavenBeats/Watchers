@@ -8,10 +8,13 @@
     <div class="card-block" *ngIf="cars">
       <div class="row row-padding" *ngFor="let car of cars">
         <div class="col-md-9">
-          {{car.model}}
-          <!--<span>{{ movie.title }} ({{ movie.vote_average }}/10)</span>
+          <span>{{ car.model }}</span>
             <hr style="margin-top: 0%">
-            <p class="description-small"> {{ movie.overview }}</p>-->
+            <ul class="description-small">
+                <li>Horsepower: {{car.horsePower}}</li>
+                <li>Fuel usage: {{car.fuelConsumption}}L/100km</li>
+                <li>manufactured by: {{ car.manufacturer.name }}</li>
+            </ul>
         </div>
       </div>
     </div>
