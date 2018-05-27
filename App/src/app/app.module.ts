@@ -21,6 +21,7 @@ import { SeasonsComponent } from './detail/detailseries/seasons/seasons.componen
 import { SeasonsListComponent } from './detail/detailseries/seasons/seasonslist.component';
 import { EpisodesListComponent } from './detail/detailseries/seasons/episodeslist.component';
 import { DetailEpisodeComponent } from './detail/detailseries/seasons/detailepisode.component';
+import { ApiComponent } from './api/api.component';
 
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
@@ -44,7 +45,8 @@ import { SeasonsService } from './services/seasons.service';
     SeasonsComponent,
     SeasonsListComponent,
     EpisodesListComponent,
-    DetailEpisodeComponent
+    DetailEpisodeComponent,
+    ApiComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,7 @@ import { SeasonsService } from './services/seasons.service';
       { path: "detailserie/:id", component: DetailSeriesComponent},
       { path: "detailserie/:id/seasons", component: SeasonsComponent},
       { path: "search/:search", component: SearchComponent},
+      { path: "api", component: ApiComponent},
       { path: "", redirectTo:"home", pathMatch: 'full'}
     ], {useHash: true} )
   ],

@@ -4,8 +4,11 @@
         </logo>
         <links>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item  " [routerLinkActive]="['active']">
+                <li class="nav-item" [routerLinkActive]="['active']">
                     <a [routerLink]="['/home']" class="nav-link waves-light" mdbRippleRadius>Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" [routerLinkActive]="['active']">
+                    <a [routerLink]="['/api']" class="nav-link waves-light" mdbRippleRadius>Random info about some cars</a>
                 </li>
             </ul>
 
