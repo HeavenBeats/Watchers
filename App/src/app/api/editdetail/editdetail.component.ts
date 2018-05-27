@@ -5,7 +5,7 @@ import { Car } from "../../model/car";
 @Component({
     selector: "api-detail",
     templateUrl: "editdetail.component.html",
-    //styleUrls: ["editdetail.component.scss"]
+    styleUrls: ["editdetail.component.scss"]
 })
 export class EditDetailComponent{
     edit : boolean;
@@ -34,7 +34,6 @@ export class EditDetailComponent{
 
     public SaveCar(){
         var result
-        this.editCar.manufacturer = null;
         this.CarSvc.updateCar(this.editCar).subscribe(r => result = r);
         console.log(result)
         this.edit = false;
