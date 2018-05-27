@@ -18,8 +18,11 @@ export class CarService{
     }
 
     public setCar(id : number){
-        this.getCar(id).subscribe(c => {
-            this.car = c;
-        });
+        this.getCar(id).subscribe(c => this.car = c);
+    }
+
+    public updateCar(car : Car) : Observable<Car>{
+        console.log(car);
+        return this.http.put<Car>('http://localhost:5000/api/cars/' + car.id, car);
     }
 }
