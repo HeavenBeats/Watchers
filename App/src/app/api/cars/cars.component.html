@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <div class="title-selector head-scrollable">
+      <h4 class="card-title title" style="margin-bottom: 0%">Cars</h4>
+    </div>
+  </div>
+  <div class="card-body body-scrollable-small">
+    <div class="card-block" *ngIf="cars">
+      <div class="row row-padding" *ngFor="let car of cars">
+        <div class="col-md-9">
+          {{car.model}}
+          <!--<span>{{ movie.title }} ({{ movie.vote_average }}/10)</span>
+            <hr style="margin-top: 0%">
+            <p class="description-small"> {{ movie.overview }}</p>-->
+        </div>
+      </div>
+    </div>
+    <div class="card-block" *ngIf="!cars">
+      <div style="text-align: center; vertical-align: center">
+        No cars found
+      </div>
+    </div>
+  </div>
+</div>
