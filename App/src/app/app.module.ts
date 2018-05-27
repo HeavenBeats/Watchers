@@ -22,12 +22,14 @@ import { SeasonsListComponent } from './detail/detailseries/seasons/seasonslist.
 import { EpisodesListComponent } from './detail/detailseries/seasons/episodeslist.component';
 import { DetailEpisodeComponent } from './detail/detailseries/seasons/detailepisode.component';
 import { ApiComponent } from './api/api.component';
+import { CarsComponent } from './api/cars/cars.component';
 
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
 import { SearchService } from './services/search.service';
 import { CastService } from './services/cast.service';
 import { SeasonsService } from './services/seasons.service';
+import { CarService } from './services/car.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { SeasonsService } from './services/seasons.service';
     SeasonsListComponent,
     EpisodesListComponent,
     DetailEpisodeComponent,
-    ApiComponent
+    ApiComponent,
+    CarsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import { SeasonsService } from './services/seasons.service';
     MoviesService,
     SearchService,
     CastService,
-    SeasonsService
+    SeasonsService,
+    CarService
   ],
   bootstrap: [AppComponent]
 })
