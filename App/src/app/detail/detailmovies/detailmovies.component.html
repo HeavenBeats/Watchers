@@ -43,7 +43,7 @@
               </div>
               <span *ngIf="movie.homepage">
                 <br *ngIf="!movie.spoken_languages.length">Home page:
-                <a href="movie.homepage">{{ movie.homepage }}</a>
+                <a href="{{movie.homepage}}">{{ movie.homepage }}</a>
               </span>
               <span *ngIf="movie.belongs_to_collection">
                 <br>From movie collection: {{ movie.belongs_to_collection.name }}</span>
