@@ -1,10 +1,12 @@
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
 namespace API.Controllers
 {
+    [EnableCors("AllowAllHeaders")]
     [Route("/api/manufacturers")]
     public class ManufacturersController : Controller
     {

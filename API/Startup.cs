@@ -30,6 +30,16 @@ namespace API
                     Configuration.GetConnectionString("DefaultConnection")
                 )
             );
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllHeaders", builder => 
+                {
+                    builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                });
+            });
             services.AddMvc();
         }
 
@@ -42,7 +52,7 @@ namespace API
             }
 
             app.UseMvc();
-
+            app.UseCors("AllowAllHeaders");
             CarDbInitializer.Initialize(carContext);
         }
     }
