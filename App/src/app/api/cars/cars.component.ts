@@ -15,4 +15,8 @@ export class CarsComponent implements OnInit{
     ngOnInit(){
         this.CarSvc.getCars().subscribe(c => this.cars = c);
     }
+
+    public setCar(id : number){
+        this.CarSvc.setCar(id);
+    }
 }

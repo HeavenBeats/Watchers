@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class CarService{
-    car : Car;
+    public car : Car;
 
     constructor(private http : HttpClient){}
 
@@ -14,10 +14,12 @@ export class CarService{
     }
 
     public getCar(id : number) : Observable<Car>{
-        return this.http.get<Car>('http://localhost:5000/cars/' + id);
+        return this.http.get<Car>('http://localhost:5000/api/cars/' + id);
     }
 
     public setCar(id : number){
-        this.getCar(id).subscribe(c => this.car = c);
+        this.getCar(id).subscribe(c => {
+            this.car = c;
+        });
     }
 }
