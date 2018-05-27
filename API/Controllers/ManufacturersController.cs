@@ -30,7 +30,8 @@ namespace API.Controllers
         {
             var manufacturer = context.Manufacturers.Include(m => m.Cars)
                                                     .Where(m => m.Id == id)
-                                                    .Select(m => m);
+                                                    .Select(m => m)
+                                                    .Single();
             if (manufacturer == null)
                 return NotFound();
 

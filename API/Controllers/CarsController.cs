@@ -27,7 +27,8 @@ namespace API.Controllers{
         public IActionResult getCar(int id){
             var car = context.Cars.Include(c => c.Manufacturer)
                                     .Where(c => c.Id == id)
-                                    .Select(c => c);
+                                    .Select(c => c)
+                                    .Single();
             if(car == null)
                 return NotFound();
             
