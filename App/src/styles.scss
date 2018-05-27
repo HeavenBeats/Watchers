@@ -40,6 +40,14 @@ html{
     width: 97%;
     position: absolute;
 }
+.body-scrollable-full{
+    overflow-y: scroll;    
+    overflow: overlay;  
+    overflow-x: hidden;
+    height: 74vh;           
+    width: 97%;
+    position: absolute;
+}
 .body-scrollable-small{
     overflow-y: scroll;    
     overflow: overlay;  

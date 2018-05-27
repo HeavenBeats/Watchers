@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-header">
+    <div class="title-selector head-scrollable">
+      <h4 class="card-title title" style="margin-bottom: 0%">Edit details</h4>
+    </div>
+  </div>
+  <div class="card-body body-scrollable-full">
+    <div class="card-block" *ngIf="CarSvc.car">
+      <!--<img class="img-fill" src="https://image.tmdb.org/t/p/w500{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster"
+        style="margin-left: -2em">
+      <br>
+      <br>-->
+      <h4>{{CarSvc.car.model}}</h4>
+      <hr>
+      <ul>
+            <li>Horsepower: {{CarSvc.car.horsePower}}</li>
+            <li>Engine: {{CarSvc.car.engine}}</li>
+            <li>Fuel usage: {{CarSvc.car.fuelConsumption}}L/100km</li>
+            <li>Power source: {{CarSvc.car.powerSource}}</li>
+            <li>Seats: {{CarSvc.car.seats}}</li>
+            <li>Available from: €{{CarSvc.car.startingPrice | number }}</li>
+            <li>manufactured by: {{ CarSvc.car.manufacturer.name }}</li>
+        </ul>
+    </div>
+    <div class="card-block" *ngIf="!CarSvc.car">
+      <div style="text-align: center; vertical-align: center">
+        please select a car or a manufacturer
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,8 @@ import { EpisodesListComponent } from './detail/detailseries/seasons/episodeslis
 import { DetailEpisodeComponent } from './detail/detailseries/seasons/detailepisode.component';
 import { ApiComponent } from './api/api.component';
 import { CarsComponent } from './api/cars/cars.component';
-
+import { EditDetailComponent } from './api/editdetail/editdetail.component';
+ 
 import { SeriesService } from './services/series.service';
 import { MoviesService } from './services/movies.service';
 import { SearchService } from './services/search.service';
@@ -49,7 +50,8 @@ import { CarService } from './services/car.service';
     EpisodesListComponent,
     DetailEpisodeComponent,
     ApiComponent,
-    CarsComponent
+    CarsComponent,
+    EditDetailComponent
   ],
   imports: [
     BrowserModule,
