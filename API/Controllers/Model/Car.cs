@@ -1,5 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Model{
     public class Car{
+        
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Model { get; set; }
         public int HorsePower { get; set; }
