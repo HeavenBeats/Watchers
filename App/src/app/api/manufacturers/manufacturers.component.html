@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header">
+    <div class="title-selector head-scrollable">
+      <h4 class="card-title title" style="margin-bottom: 0%">Manufacturers</h4>
+    </div>
+  </div>
+  <div class="card-body body-scrollable-small">
+    <div class="card-block" *ngIf="manufacturers">
+      <div class="row row-padding" *ngFor="let manufacturer of manufacturers" (click)="setManufacturer(manufacturer.id)">
+        <div class="col-md-12">
+          <span>{{ manufacturer.name }}</span>
+            <hr style="margin-top: 0%">
+            <ul class="description-small">
+                <li>Founded in: {{manufacturer.foundedIn}}</li>
+                <li>Founded by: {{manufacturer.founder}}</li>
+                <li>last years profit: {{ manufacturer.lastYearProfit }}</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-block" *ngIf="!manufacturers">
+      <div style="text-align: center; vertical-align: center">
+        No manufacturers found
+      </div>
+    </div>
+  </div>
+</div>

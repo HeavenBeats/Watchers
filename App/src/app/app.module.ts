@@ -23,6 +23,7 @@ import { EpisodesListComponent } from './detail/detailseries/seasons/episodeslis
 import { DetailEpisodeComponent } from './detail/detailseries/seasons/detailepisode.component';
 import { ApiComponent } from './api/api.component';
 import { CarsComponent } from './api/cars/cars.component';
+import { ManufacturersComponent } from './api/manufacturers/manufacturers.component';
 import { EditDetailComponent } from './api/editdetail/editdetail.component';
  
 import { SeriesService } from './services/series.service';
@@ -51,6 +52,7 @@ import { CarService } from './services/car.service';
     DetailEpisodeComponent,
     ApiComponent,
     CarsComponent,
+    ManufacturersComponent,
     EditDetailComponent
   ],
   imports: [
