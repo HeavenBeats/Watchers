@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -63,7 +64,15 @@ namespace API.Controllers{
             oldCar.PowerSource = updateCar.PowerSource;
             oldCar.Seats = updateCar.Seats;
             oldCar.StartingPrice = updateCar.StartingPrice;
-            oldCar.Manufacturer = updateCar.Manufacturer;
+            
+            List<Manufacturer> manufacturers = context.Manufacturers.ToList();
+            Manufacturer updateManufacturer = null;
+            manufacturers.ForEach(m =>{
+                if(m.Id == updateCar.Manufacturer.Id)
+                    updateManufacturer = m;
+            });
+            if(updateManufacturer != null)
+                oldCar.Manufacturer = updateManufacturer;
             context.SaveChanges();
             return Ok(oldCar);
         }
