@@ -56,15 +56,15 @@
       <div class="md-form" >
         Model:
         <input type="text" id="model" [(ngModel)]="EditCar.model" value="{{CarSvc.car.model}}" class="form-control" mdbInputDirective> HorsePower:
-        <input type="text" id="horsePower" [(ngModel)]="EditCar.horsePower" value="{{CarSvc.car.horsePower}}" class="form-control"
+        <input type="number" id="horsePower" [(ngModel)]="EditCar.horsePower" value="{{CarSvc.car.horsePower}}" class="form-control"
           mdbInputDirective> Engine:
         <input type="text" id="engine" [(ngModel)]="EditCar.engine" value="{{CarSvc.car.engine}}" class="form-control" mdbInputDirective> Fuel usage:
-        <input type="text" id="fuelConsumption" [(ngModel)]="EditCar.fuelConsumption" value="{{CarSvc.car.fuelConsumption}}" class="form-control"
+        <input type="number" step="0.1" id="fuelConsumption" [(ngModel)]="EditCar.fuelConsumption" value="{{CarSvc.car.fuelConsumption}}" class="form-control"
           mdbInputDirective> Power source:
         <input type="text" id="powerSource" [(ngModel)]="EditCar.powerSource" value="{{CarSvc.car.powerSource}}" class="form-control"
           mdbInputDirective> Seats:
-        <input type="text" id="seats" [(ngModel)]="EditCar.seats" value="{{CarSvc.car.seats}}" class="form-control" mdbInputDirective> Starting price:
-        <input type="text" id="startingPrice" [(ngModel)]="EditCar.startingPrice" value="{{CarSvc.car.startingPrice}}" class="form-control"
+        <input type="number" id="seats" [(ngModel)]="EditCar.seats" value="{{CarSvc.car.seats}}" class="form-control" mdbInputDirective> Starting price:
+        <input type="number" id="startingPrice" [(ngModel)]="EditCar.startingPrice" value="{{CarSvc.car.startingPrice}}" class="form-control"
           mdbInputDirective> Manufacturer:
         <select name="manufacturer" id="manufacturer" [(ngModel)]="ManId">
           <option value="{{man.id}}" *ngFor="let man of manufacturers">{{man.name}}</option>
@@ -104,13 +104,13 @@
           mdbInputDirective> Origin:
         <input type="text" id="origin" [(ngModel)]="EditManufacturer.origin" value="{{CarSvc.manufacturer.origin}}" class="form-control"
           mdbInputDirective> Founded in:
-        <input type="text" id="foundedIn" [(ngModel)]="EditManufacturer.foundedIn" value="{{CarSvc.manufacturer.foundedIn}}" class="form-control"
+        <input type="number" id="foundedIn" [(ngModel)]="EditManufacturer.foundedIn" value="{{CarSvc.manufacturer.foundedIn}}" class="form-control"
           mdbInputDirective> Founded by:
         <input type="text" id="founder" [(ngModel)]="EditManufacturer.founder" value="{{CarSvc.manufacturer.founder}}" class="form-control"
           mdbInputDirective> Last years revenue (in millions):
-        <input type="text" id="lastYearRevenue" [(ngModel)]="EditManufacturer.lastYearRevenue" value="{{CarSvc.manufacturer.lastYearRevenue}}"
+        <input type="number" id="lastYearRevenue" [(ngModel)]="EditManufacturer.lastYearRevenue" value="{{CarSvc.manufacturer.lastYearRevenue}}"
           class="form-control" mdbInputDirective> Last years profit (in millions):
-        <input type="text" id="lastYearProfit" [(ngModel)]="EditManufacturer.lastYearProfit" value="{{CarSvc.manufacturer.lastYearProfit}}"
+        <input type="number" id="lastYearProfit" [(ngModel)]="EditManufacturer.lastYearProfit" value="{{CarSvc.manufacturer.lastYearProfit}}"
           class="form-control" mdbInputDirective> Homepage:
         <input type="text" id="homePage" [(ngModel)]="EditManufacturer.homePage" value="{{CarSvc.manufacturer.homePage}}" class="form-control"
           mdbInputDirective>
