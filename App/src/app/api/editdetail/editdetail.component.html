@@ -2,15 +2,29 @@
   <div class="card-header">
     <div class="title-selector head-scrollable">
       <h4 class="card-title title" style="margin-bottom: 0%">Edit details</h4>
-      <button type="submit" class="btn btn-primary header-btn" (click)="SaveCar()" *ngIf="CarSvc.car && editingCar">Save</button>
-      <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.car" (click)="EditingCar()" mdbWavesEffect>
-        <i class="fa fa-pencil"></i>
-      </button>
-      <button type="submit" class="btn btn-primary header-btn" (click)="SaveManufacturer()" *ngIf="CarSvc.manufacturer && editingManufacturer">Save</button>
-      <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.manufacturer" (click)="EditingManufacturer()"
-        mdbWavesEffect>
-        <i class="fa fa-pencil"></i>
-      </button>
+      <div class="btn-group">
+        <div class="btn-group" *ngIf="((CarSvc.car || CarSvc.manufacturer) && !(newCar || newManufacturer)) && !(editingCar || editingManufacturer)"
+          dropdown>
+          <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light header-btn" mdbWavesEffect>
+            New
+          </button>
+          <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item" (click)="NewCar()">Car</a>
+            <a class="dropdown-item" (click)="NewManufacturer()">Manufacturer</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary header-btn" (click)="CreateCar()" *ngIf="newCar">Save</button>
+        <button type="button" class="btn btn-primary header-btn" (click)="CreateManufacturer()" *ngIf="newManufacturer">Save</button>
+        <button type="submit" class="btn btn-primary header-btn" (click)="SaveCar()" *ngIf="CarSvc.car && editingCar">Save</button>
+        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.car" (click)="EditingCar()" mdbWavesEffect>
+          <i class="fa fa-pencil"></i>
+        </button>
+        <button type="submit" class="btn btn-primary header-btn" (click)="SaveManufacturer()" *ngIf="CarSvc.manufacturer && editingManufacturer">Save</button>
+        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.manufacturer" (click)="EditingManufacturer()"
+          mdbWavesEffect>
+          <i class="fa fa-pencil"></i>
+        </button>
+      </div>
     </div>
   </div>
   <!--Detail info about car-->
@@ -34,12 +48,12 @@
     </div>
 
     <!--Edit car info-->
-    <div class="card-block" *ngIf="CarSvc.car && editingCar">
+    <div class="card-block" *ngIf="CarSvc.car && editingCar || newCar">
       <!--<img class="img-fill" src="https://image.tmdb.org/t/p/w500{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster"
               style="margin-left: -2em">
             <br>
             <br>-->
-      <div class="md-form">
+      <div class="md-form" >
         Model:
         <input type="text" id="model" [(ngModel)]="EditCar.model" value="{{CarSvc.car.model}}" class="form-control" mdbInputDirective> HorsePower:
         <input type="text" id="horsePower" [(ngModel)]="EditCar.horsePower" value="{{CarSvc.car.horsePower}}" class="form-control"
@@ -51,10 +65,9 @@
           mdbInputDirective> Seats:
         <input type="text" id="seats" [(ngModel)]="EditCar.seats" value="{{CarSvc.car.seats}}" class="form-control" mdbInputDirective> Starting price:
         <input type="text" id="startingPrice" [(ngModel)]="EditCar.startingPrice" value="{{CarSvc.car.startingPrice}}" class="form-control"
-          mdbInputDirective>
-          Manufacturer:
+          mdbInputDirective> Manufacturer:
         <select name="manufacturer" id="manufacturer" [(ngModel)]="ManId">
-            <option value="{{man.id}}" *ngFor="let man of manufacturers">{{man.name}}</option>
+          <option value="{{man.id}}" *ngFor="let man of manufacturers">{{man.name}}</option>
         </select>
       </div>
     </div>
@@ -73,34 +86,49 @@
         <li>Founced by: {{CarSvc.manufacturer.founder}}</li>
         <li>Last years revenue: €{{CarSvc.manufacturer.lastYearRevenue | number}} million</li>
         <li>Last years profit: €{{CarSvc.manufacturer.lastYearProfit | number}} million</li>
-        <li>Homepage: <a href="http://{{CarSvc.manufacturer.homePage}}">{{CarSvc.manufacturer.homePage}}</a></li>
+        <li>Homepage:
+          <a href="http://{{CarSvc.manufacturer.homePage}}">{{CarSvc.manufacturer.homePage}}</a>
+        </li>
       </ul>
     </div>
 
     <!--Edit info about manufacturer-->
-    <div class="card-block" *ngIf="CarSvc.manufacturer && editingManufacturer">
+    <div class="card-block" *ngIf="CarSvc.manufacturer && editingManufacturer || newManufacturer">
       <!--<img class="img-fill" src="https://image.tmdb.org/t/p/w500{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster"
                       style="margin-left: -2em">
                     <br>
                     <br>-->
       <div class="md-form">
         Name:
-        <input type="text" id="name" [(ngModel)]="EditManufacturer.name" value="{{CarSvc.manufacturer.name}}" class="form-control" mdbInputDirective> Origin:
+        <input type="text" id="name" [(ngModel)]="EditManufacturer.name" value="{{CarSvc.manufacturer.name}}" class="form-control"
+          mdbInputDirective> Origin:
         <input type="text" id="origin" [(ngModel)]="EditManufacturer.origin" value="{{CarSvc.manufacturer.origin}}" class="form-control"
           mdbInputDirective> Founded in:
-        <input type="text" id="foundedIn" [(ngModel)]="EditManufacturer.foundedIn" value="{{CarSvc.manufacturer.foundedIn}}" class="form-control" mdbInputDirective> Founded by:
+        <input type="text" id="foundedIn" [(ngModel)]="EditManufacturer.foundedIn" value="{{CarSvc.manufacturer.foundedIn}}" class="form-control"
+          mdbInputDirective> Founded by:
         <input type="text" id="founder" [(ngModel)]="EditManufacturer.founder" value="{{CarSvc.manufacturer.founder}}" class="form-control"
           mdbInputDirective> Last years revenue (in millions):
-        <input type="text" id="lastYearRevenue" [(ngModel)]="EditManufacturer.lastYearRevenue" value="{{CarSvc.manufacturer.lastYearRevenue}}" class="form-control"
-          mdbInputDirective> Last years profit (in millions):
-        <input type="text" id="lastYearProfit" [(ngModel)]="EditManufacturer.lastYearProfit" value="{{CarSvc.manufacturer.lastYearProfit}}" class="form-control" mdbInputDirective> Homepage:
+        <input type="text" id="lastYearRevenue" [(ngModel)]="EditManufacturer.lastYearRevenue" value="{{CarSvc.manufacturer.lastYearRevenue}}"
+          class="form-control" mdbInputDirective> Last years profit (in millions):
+        <input type="text" id="lastYearProfit" [(ngModel)]="EditManufacturer.lastYearProfit" value="{{CarSvc.manufacturer.lastYearProfit}}"
+          class="form-control" mdbInputDirective> Homepage:
         <input type="text" id="homePage" [(ngModel)]="EditManufacturer.homePage" value="{{CarSvc.manufacturer.homePage}}" class="form-control"
           mdbInputDirective>
       </div>
     </div>
-    <div class="card-block" *ngIf="!(CarSvc.car || CarSvc.manufacturer)">
+    <div class="card-block" *ngIf="!(CarSvc.car || CarSvc.manufacturer) && !(newCar || newManufacturer)">
       <div style="text-align: center; vertical-align: center">
         please select a car or a manufacturer
+      </div>
+      <div style="text-align: center; vertical-align: center">
+        --or--
+      </div>
+      <div style="text-align: center; vertical-align: center">
+        Create a new
+      </div>
+      <div style="text-align: center; vertical-align: center; display: flex; justify-content: center;">
+        <button type="button" class="btn btn-primary" (click)="NewCar()">car</button>
+        <button type="button" class="btn btn-primary" (click)="NewManufacturer()">manufacturer</button>
       </div>
     </div>
   </div>
