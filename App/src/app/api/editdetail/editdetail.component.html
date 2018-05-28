@@ -52,6 +52,10 @@
         <input type="text" id="seats" [(ngModel)]="EditCar.seats" value="{{CarSvc.car.seats}}" class="form-control" mdbInputDirective> Starting price:
         <input type="text" id="startingPrice" [(ngModel)]="EditCar.startingPrice" value="{{CarSvc.car.startingPrice}}" class="form-control"
           mdbInputDirective>
+          Manufacturer:
+        <select name="manufacturer" id="manufacturer" [(ngModel)]="ManId">
+            <option value="{{man.id}}" *ngFor="let man of manufacturers">{{man.name}}</option>
+        </select>
       </div>
     </div>
 

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CarService } from "../../services/car.service";
 import { Car } from "../../model/car";
 import { Manufacturer } from "../../model/manufacturer";
@@ -8,11 +8,13 @@ import { Manufacturer } from "../../model/manufacturer";
     templateUrl: "editdetail.component.html",
     styleUrls: ["editdetail.component.scss"]
 })
-export class EditDetailComponent{
+export class EditDetailComponent implements OnInit{
     editingCar : boolean;
     editCar : Car; 
     editingManufacturer : boolean;
     editManufacturer : Manufacturer;
+    manufacturers : Manufacturer[];
+    manId : number;
 
     get EditCar() : Car{
         return this.editCar;
@@ -30,7 +32,19 @@ export class EditDetailComponent{
         this.editManufacturer = manufacturer;
     }
 
+    get ManId() : number{
+        return this.manId;
+    }
+
+    set ManId(id : number){
+        this.manId = id;
+    }
+
     constructor(private CarSvc : CarService){}
+
+    ngOnInit(){
+        this.CarSvc.getManufacturers().subscribe(m => this.manufacturers = m);
+    }
 
     public EditingCar(){
         if(this.editingCar){
@@ -40,6 +54,7 @@ export class EditDetailComponent{
         else{
             this.editingCar = true;
             this.editCar = this.CarSvc.car;
+            this.manId = this.editCar.manufacturer.id;
         }
     }
 
@@ -56,6 +71,7 @@ export class EditDetailComponent{
 
     public SaveCar(){
         var result
+        this.editCar.manufacturer = this.manufacturers[this.ManId];
         this.CarSvc.updateCar(this.editCar).subscribe(r => result = r);
         console.log(result)
         this.editingCar = false;
