@@ -25,7 +25,6 @@ export class CarService{
     }
 
     public updateCar(car : Car) : Observable<Car>{
-        console.log(car);
         return this.http.put<Car>('http://localhost:5000/api/cars/' + car.id, car);
     }
 
@@ -40,5 +39,9 @@ export class CarService{
     public setManufacturer(id : number){
         this.getManufacturer(id).subscribe(m => this.manufacturer = m);
         this.car = null;
+    }
+
+    public updateManufacturer(manufacturer : Manufacturer){
+        return this.http.put<Manufacturer>('http://localhost:5000/api/manufacturers/' + manufacturer.id, manufacturer);
     }
 }

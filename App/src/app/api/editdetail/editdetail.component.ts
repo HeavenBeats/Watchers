@@ -70,15 +70,14 @@ export class EditDetailComponent implements OnInit{
     }
 
     public SaveCar(){
-        var result
         this.editCar.manufacturer = this.manufacturers[this.ManId];
-        this.CarSvc.updateCar(this.editCar).subscribe(r => result = r);
-        console.log(result)
+        this.CarSvc.updateCar(this.editCar);
         this.editingCar = false;
         this.editCar = null;
     }
 
     public SaveManufacturer(){
+        this.CarSvc.updateManufacturer(this.editManufacturer).subscribe(m => console.log(m));
         this.editingManufacturer = false;
         this.editManufacturer = null
     }
