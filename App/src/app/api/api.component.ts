@@ -6,11 +6,11 @@ import { DomSanitizer } from '@angular/platform-browser';
     templateUrl: "api.component.html",
     //styleUrls: ["api.component.scss"]
 })
-export class ApiComponent{
+export class ApiComponent {
 
-    constructor(private sanitizer : DomSanitizer){}
+    constructor(private sanitizer: DomSanitizer) { }
 
-    public getBackground(){
+    public getBackground() {
         return this.sanitizer.bypassSecurityTrustStyle(`url("http://bestroadtripever.com/wp-content/uploads/2014/01/o-ROAD-TRIP-facebook.jpg")`)
-      }
+    }
 }
