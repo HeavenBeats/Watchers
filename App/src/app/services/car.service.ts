@@ -28,6 +28,10 @@ export class CarService{
         return this.http.put<Car>('http://localhost:5000/api/cars/' + car.id, car);
     }
 
+    public CreateCar(car : Car){
+        return this.http.post<Car>('http://localhost:5000/api/cars', car);
+    }
+
     public getManufacturers() : Observable<Manufacturer[]>{
         return this.http.get<Manufacturer[]>('http://localhost:5000/api/manufacturers');
     }
