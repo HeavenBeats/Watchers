@@ -66,12 +66,12 @@
     </div>
     <div class="col-md-2">
       <div class="card">
-        <div class="card-header" style="padding-bottom: 0%">
-          <h6 class="card-title">Cast</h6>
+        <div class="card-header head-scrollable" style="padding-bottom: 0%">
+          <h6 class="card-title title">Cast</h6>
         </div>
-        <div class="card-body scrollable-horizontal-container">
+        <div class="card-body body-scrollable-full">
           <div class="card-block">
-            <div class="row cast-row">
+            <div class="row">
               <div class="cast-element" *ngFor="let actor of cast">
                 <img src="https://image.tmdb.org/t/p/w92{{actor.profile_path}}" alt="{{ actor.name }} profile" *ngIf="actor.profile_path">
                 <p style="font-size: 0.8rem" *ngIf="actor.profile_path">

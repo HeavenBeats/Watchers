@@ -1,10 +1,11 @@
 <div class="card">
-  <div class="card-body scrollable">
+  <div class="card-header">
     <div class="head-scrollable">
       <h4 class="card-title title">Episodes</h4>
     </div>
-    <hr style="margin-bottom: 0%">
-    <div class="card-block body-scrollable" *ngIf="SeasonSvc.episodes">
+  </div>
+  <div class="card-body body-scrollable-full">
+    <div class="card-block" *ngIf="SeasonSvc.episodes">
       <div class="row row-padding" *ngFor="let episode of SeasonSvc.episodes; let i = index" (click)="showEpisode(i)">
         <div class="col-md-12">
           <span>{{ episode.name }}</span>
