@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: "app-api",
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ApiComponent{
 
+    constructor(private sanitizer : DomSanitizer){}
+
+    public getBackground(){
+        return this.sanitizer.bypassSecurityTrustStyle(`url("http://bestroadtripever.com/wp-content/uploads/2014/01/o-ROAD-TRIP-facebook.jpg")`)
+      }
 }

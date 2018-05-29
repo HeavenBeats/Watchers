@@ -1,21 +1,24 @@
-<br>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-7">
-            <div class="row">
-                <div class="col-md-12">
-                    <api-cars></api-cars>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <api-manufacturers></api-manufacturers>
-                </div>
-            </div>
+<div class="container-fluid" [style.background-image]='getBackground()' style="height: 92vh; background-size: cover">
+  <br>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="row">
+        <div class="col-md-12">
+          <api-cars></api-cars>
         </div>
-        <div class="col-md-5">
-            <api-detail></api-detail>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <api-manufacturers></api-manufacturers>
         </div>
+      </div>
     </div>
+    <div class="col-lg-4 col-md-5">
+      <api-detail></api-detail>
+    </div>
+    <div class="col-lg-1 col-md-0">
+
+    </div>
+  </div>
 </div>
