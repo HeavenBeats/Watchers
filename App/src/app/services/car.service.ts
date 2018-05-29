@@ -7,7 +7,9 @@ import { Manufacturer } from "../model/manufacturer";
 @Injectable()
 export class CarService{
     public car : Car;
+    public cars : Car[];
     public manufacturer : Manufacturer;
+    public manufacturers : Manufacturer[];
 
     constructor(private http : HttpClient){}
 

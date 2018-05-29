@@ -8,12 +8,11 @@ import { CarService } from '../../services/car.service';
     //styleUrls: ["manufacturers.component.scss"]
 })
 export class ManufacturersComponent implements OnInit{
-    manufacturers : Manufacturer[]
 
     constructor(private CarSvc : CarService){}
 
     ngOnInit(){
-        this.CarSvc.getManufacturers().subscribe(m => this.manufacturers = m);
+        this.CarSvc.getManufacturers().subscribe(m => this.CarSvc.manufacturers = m);
     }
 
     public setManufacturer(id : number){

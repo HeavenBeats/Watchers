@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="card-body body-scrollable-small">
-    <div class="card-block" *ngIf="cars">
-      <div class="row row-padding" *ngFor="let car of cars" (click)="setCar(car.id)">
+    <div class="card-block" *ngIf="CarSvc.cars">
+      <div class="row row-padding" *ngFor="let car of CarSvc.cars" (click)="setCar(car.id)">
         <div class="col-md-9">
           <span>{{ car.model }}</span>
             <hr style="margin-top: 0%">
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="card-block" *ngIf="!cars">
+    <div class="card-block" *ngIf="!CarSvc.cars">
       <div style="text-align: center; vertical-align: center">
         No cars found
       </div>

@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="card-body body-scrollable-small">
-    <div class="card-block" *ngIf="manufacturers">
-      <div class="row row-padding" *ngFor="let manufacturer of manufacturers" (click)="setManufacturer(manufacturer.id)">
+    <div class="card-block" *ngIf="CarSvc.manufacturers">
+      <div class="row row-padding" *ngFor="let manufacturer of CarSvc.manufacturers" (click)="setManufacturer(manufacturer.id)">
         <div class="col-md-12">
           <span>{{ manufacturer.name }}</span>
             <hr style="margin-top: 0%">
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="card-block" *ngIf="!manufacturers">
+    <div class="card-block" *ngIf="!CarSvc.manufacturers">
       <div style="text-align: center; vertical-align: center">
         No manufacturers found
       </div>
