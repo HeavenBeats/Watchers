@@ -127,6 +127,15 @@ export class EditDetailComponent implements OnInit {
         }
     }
 
+    public Cancel(){
+        this.editCar = null;
+        this.editingCar = false;
+        this.newCar = false;
+        this.editManufacturer = null;
+        this.editingManufacturer = false;
+        this.newManufacturer = false;
+    }
+
     public ReadyToSaveCar() {
         return this.editCar.model != null && this.EditCar.engine != null && this.editCar.horsePower != null && this.editCar.fuelConsumption != null && this.editCar.powerSource != null && this.editCar.seats != null && this.editCar.startingPrice != null && this.editCar.manufacturer != null;
     }

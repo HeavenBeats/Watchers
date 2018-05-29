@@ -13,17 +13,18 @@
             <a class="dropdown-item" (click)="NewManufacturer()">Manufacturer</a>
           </div>
         </div>
-        <button type="button" class="btn btn-primary header-btn" (click)="CreateCar()" *ngIf="newCar">Save</button>
-        <button type="button" class="btn btn-primary header-btn" (click)="CreateManufacturer()" *ngIf="newManufacturer">Save</button>
-        <button type="submit" class="btn btn-primary header-btn" (click)="SaveCar()" *ngIf="CarSvc.car && editingCar">Save</button>
-        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.car" (click)="EditingCar()" mdbWavesEffect>
+        <button type="button" class="btn btn-primary waves-light header-btn" (click)="CreateCar()" *ngIf="newCar">Save</button>
+        <button type="button" class="btn btn-primary waves-light header-btn" (click)="CreateManufacturer()" *ngIf="newManufacturer">Save</button>
+        <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveCar()" *ngIf="CarSvc.car && editingCar">Save</button>
+        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.car && !editingCar" (click)="EditingCar()" mdbWavesEffect>
           <i class="fa fa-pencil"></i>
         </button>
-        <button type="submit" class="btn btn-primary header-btn" (click)="SaveManufacturer()" *ngIf="CarSvc.manufacturer && editingManufacturer">Save</button>
-        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.manufacturer" (click)="EditingManufacturer()"
+        <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveManufacturer()" *ngIf="CarSvc.manufacturer && editingManufacturer">Save</button>
+        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.manufacturer && !editingManufacturer" (click)="EditingManufacturer()"
           mdbWavesEffect>
           <i class="fa fa-pencil"></i>
         </button>
+        <button type="button" class="btn btn-danger waves-light header-btn" (click)="Cancel()" *ngIf="editingCar || editingManufacturer || newCar || newManufacturer"><i class="fa fa-close"></i></button>
       </div>
     </div>
   </div>
