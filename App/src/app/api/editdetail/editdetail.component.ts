@@ -96,6 +96,7 @@ export class EditDetailComponent implements OnInit {
                 this.editingManufacturer = false;
             }
             else if(action == "create"){
+                this.CarSvc.createManufacturer(this.editManufacturer).subscribe(r => console.log(r));
                 this.newManufacturer = false;
                 this.CarSvc.manufacturer = this.editManufacturer;
             }
