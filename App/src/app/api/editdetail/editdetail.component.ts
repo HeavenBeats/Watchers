@@ -65,20 +65,20 @@ export class EditDetailComponent implements OnInit {
         this.editManufacturer = this.CarSvc.manufacturer;
     }
 
-    public SaveCar(action : string) {
+    public SaveCar(action: string) {
         this.CarSvc.getManufacturer(this.manId).subscribe(m => {
             this.editCar.manufacturer = m;
-            if(this.ReadyToSaveCar()){
-                if(action == "update"){
+            if (this.ReadyToSaveCar()) {
+                if (action == "update") {
                     this.CarSvc.updateCar(this.editCar).subscribe(r => console.log(r));
                     this.editingCar = false;
                 }
-                else if(action == "create"){
+                else if (action == "create") {
                     this.CarSvc.CreateCar(this.editCar).subscribe(r => console.log(r));
                     this.CarSvc.car = this.editCar;
                     this.newCar = false;
                 }
-                else{
+                else {
                     console.log("wrong action specified...");
                 }
                 this.editCar = null;
@@ -89,23 +89,23 @@ export class EditDetailComponent implements OnInit {
         })
     }
 
-    public SaveManufacturer(action : string) {
-        if(this.ReadyToSaveManufacturer()){
-            if(action == "update"){
+    public SaveManufacturer(action: string) {
+        if (this.ReadyToSaveManufacturer()) {
+            if (action == "update") {
                 this.CarSvc.updateManufacturer(this.editManufacturer).subscribe(r => console.log(r));
                 this.editingManufacturer = false;
             }
-            else if(action == "create"){
+            else if (action == "create") {
                 this.CarSvc.createManufacturer(this.editManufacturer).subscribe(r => console.log(r));
                 this.newManufacturer = false;
                 this.CarSvc.manufacturer = this.editManufacturer;
             }
-            else{
+            else {
                 console.log("wrong action specified");
             }
             this.editManufacturer = null;
         }
-        else{
+        else {
             alert("please fill in all the fields");
         }
     }
@@ -132,6 +132,16 @@ export class EditDetailComponent implements OnInit {
         this.editManufacturer = null;
         this.editingManufacturer = false;
         this.newManufacturer = false;
+    }
+
+    public DeleteCar(){
+        this.CarSvc.deleteCar(this.CarSvc.car.id).subscribe(r => console.log(r));
+        this.CarSvc.car = null;
+    }
+
+    public DeleteManufacturer(){
+        this.CarSvc.deleteManufacturer(this.CarSvc.manufacturer.id).subscribe(r => console.log(r));
+        this.CarSvc.manufacturer = null;
     }
 
     public ReadyToSaveCar() {

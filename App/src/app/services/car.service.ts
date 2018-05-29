@@ -32,6 +32,10 @@ export class CarService{
         return this.http.post<Car>('http://localhost:5000/api/cars', car);
     }
 
+    public deleteCar(id : number){
+        return this.http.delete<Car>('http://localhost:5000/api/cars/' + id);
+    }
+
     public getManufacturers() : Observable<Manufacturer[]>{
         return this.http.get<Manufacturer[]>('http://localhost:5000/api/manufacturers');
     }
@@ -51,5 +55,9 @@ export class CarService{
 
     public createManufacturer(manufacturer : Manufacturer){
         return this.http.post<Manufacturer>('http://localhost:5000/api/manufacturers', manufacturer);
+    }
+
+    public deleteManufacturer(id : number){
+        return this.http.delete<Car>('http://localhost:5000/api/manufacturers/' + id)
     }
 }
