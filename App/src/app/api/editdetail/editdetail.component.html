@@ -13,13 +13,13 @@
             <a class="dropdown-item" (click)="NewManufacturer()">Manufacturer</a>
           </div>
         </div>
-        <button type="button" class="btn btn-primary waves-light header-btn" (click)="CreateCar()" *ngIf="newCar">Save</button>
-        <button type="button" class="btn btn-primary waves-light header-btn" (click)="CreateManufacturer()" *ngIf="newManufacturer">Save</button>
-        <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveCar()" *ngIf="CarSvc.car && editingCar">Save</button>
+        <button type="button" class="btn btn-primary waves-light header-btn" (click)="SaveCar('create')" *ngIf="newCar">Save</button>
+        <button type="button" class="btn btn-primary waves-light header-btn" (click)="SaveManufacturer('create')" *ngIf="newManufacturer">Save</button>
+        <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveCar('update')" *ngIf="CarSvc.car && editingCar">Save</button>
         <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.car && !editingCar" (click)="EditingCar()" mdbWavesEffect>
           <i class="fa fa-pencil"></i>
         </button>
-        <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveManufacturer()" *ngIf="CarSvc.manufacturer && editingManufacturer">Save</button>
+        <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveManufacturer('update')" *ngIf="CarSvc.manufacturer && editingManufacturer">Save</button>
         <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.manufacturer && !editingManufacturer" (click)="EditingManufacturer()"
           mdbWavesEffect>
           <i class="fa fa-pencil"></i>

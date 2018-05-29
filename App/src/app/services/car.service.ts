@@ -48,4 +48,8 @@ export class CarService{
     public updateManufacturer(manufacturer : Manufacturer){
         return this.http.put<Manufacturer>('http://localhost:5000/api/manufacturers/' + manufacturer.id, manufacturer);
     }
+
+    public createManufacturer(manufacturer : Manufacturer){
+        return this.http.post<Manufacturer>('http://localhost:5000/api/manufacturers', manufacturer);
+    }
 }

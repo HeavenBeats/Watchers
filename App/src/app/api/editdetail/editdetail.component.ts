@@ -55,39 +55,58 @@ export class EditDetailComponent implements OnInit {
     }
 
     public EditingCar() {
-        if (this.editingCar) {
-            this.editingCar = false;
-            this.editCar = null;
-        }
-        else {
-            this.editingCar = true;
-            this.editCar = this.CarSvc.car;
-            this.manId = this.editCar.manufacturer.id;
-        }
+        this.editingCar = true;
+        this.editCar = this.CarSvc.car;
+        this.manId = this.editCar.manufacturer.id;
     }
 
     public EditingManufacturer() {
-        if (this.editingManufacturer) {
-            this.editingManufacturer = false;
+        this.editingManufacturer = true;
+        this.editManufacturer = this.CarSvc.manufacturer;
+    }
+
+    public SaveCar(action : string) {
+        this.CarSvc.getManufacturer(this.manId).subscribe(m => {
+            this.editCar.manufacturer = m;
+            if(this.ReadyToSaveCar()){
+                if(action == "update"){
+                    this.CarSvc.updateCar(this.editCar).subscribe(r => console.log(r));
+                    this.editingCar = false;
+                }
+                else if(action == "create"){
+                    this.CarSvc.CreateCar(this.editCar).subscribe(r => console.log(r));
+                    this.CarSvc.car = this.editCar;
+                    this.newCar = false;
+                }
+                else{
+                    console.log("wrong action specified...");
+                }
+                this.editCar = null;
+            }
+            else {
+                alert("please fill in all the fields");
+            }
+        })
+    }
+
+    public SaveManufacturer(action : string) {
+        if(this.ReadyToSaveManufacturer()){
+            if(action == "update"){
+                this.CarSvc.updateManufacturer(this.editManufacturer).subscribe(r => console.log(r));
+                this.editingManufacturer = false;
+            }
+            else if(action == "create"){
+                this.newManufacturer = false;
+                this.CarSvc.manufacturer = this.editManufacturer;
+            }
+            else{
+                console.log("wrong action specified");
+            }
             this.editManufacturer = null;
         }
-        else {
-            this.editingManufacturer = true;
-            this.editManufacturer = this.CarSvc.manufacturer;
+        else{
+            alert("please fill in all the fields");
         }
-    }
-
-    public SaveCar() {
-        this.editCar.manufacturer = this.manufacturers[this.ManId];
-        this.CarSvc.updateCar(this.editCar);
-        this.editingCar = false;
-        this.editCar = null;
-    }
-
-    public SaveManufacturer() {
-        this.CarSvc.updateManufacturer(this.editManufacturer).subscribe(m => console.log(m));
-        this.editingManufacturer = false;
-        this.editManufacturer = null
     }
 
     public NewCar() {
@@ -95,6 +114,7 @@ export class EditDetailComponent implements OnInit {
         this.CarSvc.car = null;
         this.CarSvc.manufacturer = null;
         this.editCar = <Car>{};
+        this.manId = 1;
     }
 
     public NewManufacturer() {
@@ -104,30 +124,7 @@ export class EditDetailComponent implements OnInit {
         this.editManufacturer = <Manufacturer>{};
     }
 
-    public CreateCar() {
-        this.editCar.manufacturer = this.manufacturers[this.manId];
-        if (this.ReadyToSaveCar()) {
-            this.newCar = false;
-            this.CarSvc.car = this.editCar;
-            this.editCar = null;
-        }
-        else {
-            alert("please fill in all the fields");
-        }
-    }
-
-    public CreateManufacturer() {
-        if (this.ReadyToSaveManufacturer()) {
-            this.newManufacturer = false;
-            this.CarSvc.manufacturer = this.editManufacturer;
-            this.editManufacturer = null;
-        }
-        else{
-            alert("please fill in all the fields");
-        }
-    }
-
-    public Cancel(){
+    public Cancel() {
         this.editCar = null;
         this.editingCar = false;
         this.newCar = false;
@@ -143,6 +140,4 @@ export class EditDetailComponent implements OnInit {
     public ReadyToSaveManufacturer() {
         return this.editManufacturer.name && this.editManufacturer.origin != null && this.editManufacturer.foundedIn != null && this.editManufacturer.founder != null && this.editManufacturer.lastYearProfit != null && this.editManufacturer.lastYearRevenue != null && this.editManufacturer.homePage != null;
     }
-
-
 }
