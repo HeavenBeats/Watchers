@@ -41,8 +41,7 @@ html{
     position: absolute;
 }
 .body-scrollable-full{
-    overflow-y: scroll;    
-    overflow: overlay;  
+    overflow-y: scroll;
     overflow-x: hidden;
     height: 74vh;           
     width: 97%;
@@ -60,9 +59,6 @@ html{
     width: 100%;
     display: inline-table;
     table-layout: fixed;
-}
-.scrollable-horizontal-container{
-    padding-bottom: 0%;
 }
 .horizontal-scroll{
     display: flex;
@@ -84,7 +80,7 @@ html{
     overflow-y: scroll;
     max-height: 75vh;
 }
-.cast-row .cast-element{
+.cast-element{
     width: 7vw;
     margin: auto;
 }

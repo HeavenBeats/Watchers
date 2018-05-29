@@ -1,12 +1,14 @@
 <div class="card">
-  <div class="card-body scrollable">
+  <div class="card-header">
     <div class="head-scrollable">
       <h4 class="card-title title">Episode</h4>
     </div>
-    <hr style="margin-bottom: 0%">
-    <div class="card-block body-scrollable" *ngIf="SeasonSvc.episode">
-      <img class="img-fill" src="https://image.tmdb.org/t/p/w500{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster" style="margin-left: -2em">
-      <br><br>
+  </div>
+  <div class="card-body body-scrollable-full">
+    <div class="card-block " *ngIf="SeasonSvc.episode">
+      <img class="img-fill" src="https://image.tmdb.org/t/p/w500{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster">
+      <br>
+      <br>
       <h6>{{SeasonSvc.episode.name}}</h6>
       <hr style="margin-bottom: 0%">
       <div class="description-small">
