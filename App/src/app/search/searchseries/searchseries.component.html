@@ -1,28 +1,29 @@
 <div class="card">
-        <div class="card-body scrollable">
-            <div class="title-selector head-scrollable">
-                <h4 class="card-title title">Series</h4>
-                <select name="page" [(ngModel)]="pageNr">
-                    <option *ngFor="let i of Ssvc.sTotalPages" value="{{i + 1}}">Page {{i + 1}}</option>
-                </select>
-            </div>
-            <hr style="margin-bottom: 0%">
-            <div class="card-block body-scrollable" *ngIf="Ssvc.series">
-                <div class="row row-padding" *ngFor="let serie of Ssvc.series" [routerLink]="['/detailserie', serie.id]">
-                    <!--<div class="col-sm-12 col-md-6">-->
-                        <div class="col-md-3 scrollable-column">
-                            <!--image sizes: w92", "w154", "w185", "w342", "w500", "w780", or "original";-->
-                            <img class="img-fill" src="https://image.tmdb.org/t/p/w154{{serie.poster_path}}" alt="{{serie.title}} poster">
-                        </div>
-                        <div class="col-md-9">
-                            <span>{{ serie.title }} ({{ serie.vote_average }}/10)</span>
-                            <hr style="margin-top: 0%">
-                            <p class="description-small"> {{ serie.overview }}</p>
-                        </div>
-                    <!--</div>-->
-                </div>
-            </div>
-            <div class="card-block" *ngIf="!Ssvc.series">
-                no series found
-            </div>
+  <div class="card-header">
+    <div class="title-selector head-scrollable">
+      <h4 class="card-title title">Series</h4>
+      <select name="page" [(ngModel)]="pageNr">
+        <option *ngFor="let i of Ssvc.sTotalPages" value="{{i + 1}}">Page {{i + 1}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="card-body body-scrollable-full">
+    <div class="card-block" *ngIf="Ssvc.series">
+      <div class="row row-padding" *ngFor="let serie of Ssvc.series" [routerLink]="['/detailserie', serie.id]">
+        <!--<div class="col-sm-12 col-md-6">-->
+        <div class="col-md-3 scrollable-column">
+          <!--image sizes: w92", "w154", "w185", "w342", "w500", "w780", or "original";-->
+          <img class="img-fill" src="https://image.tmdb.org/t/p/w154{{serie.poster_path}}" alt="{{serie.title}} poster">
         </div>
+        <div class="col-md-9">
+          <span>{{ serie.title }} ({{ serie.vote_average }}/10)</span>
+          <hr style="margin-top: 0%">
+          <p class="description-small"> {{ serie.overview }}</p>
+        </div>
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="card-block" *ngIf="!Ssvc.series">
+      no series found
+    </div>
+  </div>
