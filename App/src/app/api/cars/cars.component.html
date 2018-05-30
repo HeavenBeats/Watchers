@@ -7,6 +7,11 @@
         <select name="sort" id="sort" [(ngModel)]="SortOption">
           <option value="{{sort}}" *ngFor="let sort of sortOptions">{{sort}}</option>
         </select>
+        <span>show only: </span>
+        <select name="show" id="show" [(ngModel)]="Show">
+          <option value="all">show all</option>
+          <option value="{{manufacturer.id}}" *ngFor="let manufacturer of CarSvc.manufacturers">{{manufacturer.name}}</option>
+        </select>
       </div>
     </div>
   </div>

@@ -13,7 +13,9 @@ export class CarService{
 
     constructor(private http : HttpClient){}
 
-    public getCars(sortOption : string) : Observable<Car[]>{
+    public getCars(sortOption : string, filter? : string) : Observable<Car[]>{
+        if(filter != "" && filter != null && filter != "all")
+            return this.http.get<Car[]>('http://localhost:5000/api/cars/?sort=' + sortOption + "&filter=" + filter);
         return this.http.get<Car[]>('http://localhost:5000/api/cars/?sort=' + sortOption);
     }
 

@@ -7,8 +7,8 @@ import { CarService } from '../../services/car.service';
     templateUrl: "cars.component.html",
     //styleUrls: ["cars.component.scss"]
 })
-export class CarsComponent implements OnInit{
-    sortOptions : string[] = [
+export class CarsComponent implements OnInit {
+    sortOptions: string[] = [
         "Model",
         "Horsepower",
         "Engine",
@@ -18,24 +18,39 @@ export class CarsComponent implements OnInit{
         "Startprice",
         "Manufacturer"
     ];
-    sortOption : string = this.sortOptions[0];
+    sortOption: string = this.sortOptions[0];
+    show: string;
 
-    set SortOption(s : string){
+    set SortOption(s: string) {
         this.sortOption = s;
-        this.CarSvc.getCars(this.sortOption).subscribe(c => this.CarSvc.cars = c);
+        this.ReloadCars();
     }
 
-    get SortOption() : string{
+    get SortOption(): string {
         return this.sortOption;
     }
 
-    constructor(private CarSvc : CarService){}
-
-    ngOnInit(){
-        this.CarSvc.getCars(this.sortOption).subscribe(c => this.CarSvc.cars = c);
+    set Show(s: string) {
+        this.show = s;
+        console.log(s);
+        this.ReloadCars();
     }
 
-    public setCar(id : number){
+    get Show(): string {
+        return this.show;
+    }
+
+    constructor(private CarSvc: CarService) { }
+
+    ngOnInit() {
+        this.ReloadCars();
+    }
+
+    public setCar(id: number) {
         this.CarSvc.setCar(id);
+    }
+
+    public ReloadCars() {
+        this.CarSvc.getCars(this.sortOption, this.show).subscribe(c => this.CarSvc.cars = c);
     }
 }

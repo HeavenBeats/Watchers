@@ -20,9 +20,12 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult getCars(string sort)
+        public IActionResult getCars(string sort, string filter)
         {
             IQueryable<Car> query = context.Cars;
+
+            if(!string.IsNullOrWhiteSpace(filter) && filter != "all")
+                query = query.Where(c => c.Manufacturer.Id == int.Parse(filter));
 
             if(!string.IsNullOrWhiteSpace(sort)){
                 switch(sort){
