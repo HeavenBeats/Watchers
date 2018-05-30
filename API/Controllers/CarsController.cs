@@ -20,9 +20,38 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult getCars()
+        public IActionResult getCars(string sort)
         {
             IQueryable<Car> query = context.Cars;
+
+            if(!string.IsNullOrWhiteSpace(sort)){
+                switch(sort){
+                    case "Model":
+                        query = query.OrderBy(c => c.Model);
+                        break;
+                    case "Horsepower":
+                        query = query.OrderBy(c => c.HorsePower);
+                        break;
+                    case "Engine":
+                        query = query.OrderBy(c => c.Engine);
+                        break;
+                    case "Fuel consumption":
+                        query = query.OrderBy(c => c.FuelConsumption);
+                        break;
+                    case "Power source":
+                        query = query.OrderBy(c => c.PowerSource);
+                        break;
+                    case "Seats":
+                        query = query.OrderBy(c => c.Seats);
+                        break;
+                    case "Startprice":
+                        query = query.OrderBy(c => c.StartingPrice);
+                        break;
+                    case "Manufacturer":
+                        query = query.OrderBy(c => c.Manufacturer.Name);
+                        break;
+                }
+            }
 
             return Ok(query.Include(c => c.Manufacturer).Select(c => c).ToList());
         }

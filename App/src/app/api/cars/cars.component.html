@@ -1,7 +1,13 @@
 <div class="card">
   <div class="card-header">
     <div class="title-selector head-scrollable">
-      <h4 class="card-title title" style="margin-bottom: 0%">Cars</h4>
+      <h4 class="card-title title" style="margin-bottom: 0%;">Cars</h4>
+      <div>
+        <span>sort: </span>
+        <select name="sort" id="sort" [(ngModel)]="SortOption">
+          <option value="{{sort}}" *ngFor="let sort of sortOptions">{{sort}}</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="card-body body-scrollable-small">
@@ -9,12 +15,12 @@
       <div class="row row-padding" *ngFor="let car of CarSvc.cars" (click)="setCar(car.id)">
         <div class="col-md-9">
           <span>{{ car.model }}</span>
-            <hr style="margin-top: 0%">
-            <ul class="description-small">
-                <li>Horsepower: {{car.horsePower}}</li>
-                <li>Fuel usage: {{car.fuelConsumption}}L/100km</li>
-                <li>manufactured by: {{ car.manufacturer.name }}</li>
-            </ul>
+          <hr style="margin-top: 0%">
+          <ul class="description-small">
+            <li>Horsepower: {{car.horsePower}}</li>
+            <li>Fuel usage: {{car.fuelConsumption}}L/100km</li>
+            <li>manufactured by: {{ car.manufacturer.name }}</li>
+          </ul>
         </div>
       </div>
     </div>

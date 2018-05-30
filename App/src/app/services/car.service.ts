@@ -13,8 +13,8 @@ export class CarService{
 
     constructor(private http : HttpClient){}
 
-    public getCars() : Observable<Car[]>{
-        return this.http.get<Car[]>('http://localhost:5000/api/cars');
+    public getCars(sortOption : string) : Observable<Car[]>{
+        return this.http.get<Car[]>('http://localhost:5000/api/cars/?sort=' + sortOption);
     }
 
     public getCar(id : number) : Observable<Car>{
