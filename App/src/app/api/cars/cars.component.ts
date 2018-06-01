@@ -62,10 +62,10 @@ export class CarsComponent implements OnInit {
     }
 
     public ReloadCars() {
-        this.CarSvc.getCars(this.sortOption, this.show).subscribe(c => {
-            this.CarSvc.cars = c
+        this.CarSvc.getCars(this.sortOption, this.page, this.show).subscribe(c => {
+            this.CarSvc.cars = c.carResults;
             this.pages = [];
-            for(var i = 1; i <= this.CarSvc.cars.length / 5; i++){
+            for(var i = 1; i <= c.pages; i++){
                 this.pages.push(i);
             }
         });

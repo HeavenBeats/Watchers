@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Car } from "../model/car";
 import { Observable } from "rxjs/Observable";
 import { Manufacturer } from "../model/manufacturer";
+import { Result } from "../model/Result";
 
 @Injectable()
 export class CarService{
@@ -13,10 +14,10 @@ export class CarService{
 
     constructor(private http : HttpClient){}
 
-    public getCars(sortOption : string, filter? : string) : Observable<Car[]>{
+    public getCars(sortOption : string, page : number, filter? : string) : Observable<Result>{
         if(filter != "" && filter != null && filter != "all")
-            return this.http.get<Car[]>('http://localhost:5000/api/cars/?sort=' + sortOption + "&filter=" + filter);
-        return this.http.get<Car[]>('http://localhost:5000/api/cars/?sort=' + sortOption);
+            return this.http.get<Result>('http://localhost:5000/api/cars/?sort=' + sortOption + "&page=" + page  + "&filter=" + filter);
+        return this.http.get<Result>('http://localhost:5000/api/cars/?sort=' + sortOption + "&page=" + page );
     }
 
     public getCar(id : number) : Observable<Car>{
