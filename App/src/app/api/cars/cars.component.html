@@ -32,11 +32,11 @@
             <li>Horsepower: {{car.horsePower}}</li>
             <li>Fuel usage: {{car.fuelConsumption}}L/100km</li>
             <li *ngIf="sortOption == 'Manufacturer'">manufactured by: {{ car.manufacturer.name }}</li>
-            <li *ngIf="sortOption == 'Engine' || sortOption == 'Horsepower'">Engine: {{CarSvc.car.engine}}</li>
-            <li *ngIf="sortOption == 'Power source' || sortOption == 'Fuel consumption'">Power source: {{CarSvc.car.powerSource}}</li>
-            <li *ngIf="sortOption == 'Seats'">Seats: {{CarSvc.car.seats}}</li>
-            <li *ngIf="sortOption == 'Startprice'">Available from: €{{CarSvc.car.startingPrice | number }}</li>
-            <li *ngIf="sortOption == 'Manufacturer'">manufactured by: {{ CarSvc.car.manufacturer.name }}</li>
+            <li *ngIf="sortOption == 'Engine' || sortOption == 'Horsepower'">Engine: {{car.engine}}</li>
+            <li *ngIf="sortOption == 'Power source' || sortOption == 'Fuel consumption'">Power source: {{car.powerSource}}</li>
+            <li *ngIf="sortOption == 'Seats'">Seats: {{car.seats}}</li>
+            <li *ngIf="sortOption == 'Startprice' || sortOption == 'Model'">Available from: €{{car.startingPrice | number }}</li>
+            <li *ngIf="sortOption == 'Manufacturer'">manufactured by: {{ car.manufacturer.name }}</li>
           </ul>
         </div>
       </div>
