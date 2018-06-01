@@ -20,9 +20,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult getCars(string sort, string filter)
+        public IActionResult getCars(string sort, string filter, int? page, int length = 5)
         {
             IQueryable<Car> query = context.Cars;
+            Result r = new Result();
 
             if(!string.IsNullOrWhiteSpace(filter) && filter != "all")
                 query = query.Where(c => c.Manufacturer.Id == int.Parse(filter));
@@ -56,7 +57,16 @@ namespace API.Controllers
                 }
             }
 
-            return Ok(query.Include(c => c.Manufacturer).Select(c => c).ToList());
+            r.Pages = query.Count() / length + 1;
+
+            if(page.HasValue){
+                query = query.Skip((page.Value - 1) * length);
+                query = query.Take(length);
+            }
+
+            r.CarResults = query.Include(c => c.Manufacturer).Select(c => c).ToList();
+
+            return Ok(r);
         }
 
         [HttpGet("{id}")]
