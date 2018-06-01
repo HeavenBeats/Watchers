@@ -18,11 +18,44 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult getManufacturers()
+        public IActionResult getManufacturers(string sort, int? page, int length = 5)
         {
             IQueryable<Manufacturer> query = context.Manufacturers;
+            Result r = new Result();
 
-            return Ok(query.Include(m => m.Cars).Select(m => m).ToList());
+             if(!string.IsNullOrWhiteSpace(sort)){
+                switch(sort){
+                    case "Name":
+                        query = query.OrderBy(m => m.Name);
+                        break;
+                    case "Origin":
+                        query = query.OrderBy(m => m.Origin);
+                        break;
+                    case "Founded in":
+                        query = query.OrderBy(m => m.FoundedIn);
+                        break;
+                    case "Founder":
+                        query = query.OrderBy(m => m.Founder);
+                        break;
+                    case "Revenue":
+                        query = query.OrderBy(m => m.LastYearRevenue);
+                        break;
+                    case "Profit":
+                        query = query.OrderBy(m => m.LastYearProfit);
+                        break;
+                }
+            }
+
+            r.Pages = query.Count() / length + 1;
+
+            if(page.HasValue){
+                query = query.Skip((page.Value - 1) * length);
+                query = query.Take(length);
+            }
+
+            r.ManufacturerResults = query.Include(m => m.Cars).Select(m => m).ToList();
+
+            return Ok(r);
         }
 
         [HttpGet("{id}")]
