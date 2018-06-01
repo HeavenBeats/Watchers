@@ -21,24 +21,12 @@ html{
 .title-selector title{
     display: inline;
 }
-
-.scrollable{
-    height:86vh;
-}
-.scrollable .scrollable-column{
+.scrollable-column{
     padding-left: 0.5%;
 }
-.scrollable .head-scrollable{
+.head-scrollable{
     overflow-y: hidden;
     overflow: hidden;
-}
-.scrollable .body-scrollable{
-    overflow-y: scroll;    
-    overflow: overlay;  
-    overflow-x: hidden;
-    height: 74vh;           
-    width: 97%;
-    position: absolute;
 }
 .body-scrollable-full{
     overflow-y: scroll;
@@ -51,7 +39,7 @@ html{
     overflow-y: scroll;    
     overflow: overlay;  
     overflow-x: hidden;
-    height: 31vh;           
+    height: 30vh;           
     width: 97%;
     position: absolute;
 }
