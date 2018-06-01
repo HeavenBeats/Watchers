@@ -41,8 +41,10 @@ export class CarService{
         return this.http.delete<Car>('http://localhost:5000/api/cars/' + id);
     }
 
-    public getManufacturers() : Observable<Manufacturer[]>{
-        return this.http.get<Manufacturer[]>('http://localhost:5000/api/manufacturers');
+    public getManufacturers(sortOption : string, page? : number) : Observable<Result>{
+        if(page != null)
+            return this.http.get<Result>('http://localhost:5000/api/manufacturers?sort=' + sortOption + "&page=" + page);
+        return this.http.get<Result>('http://localhost:5000/api/manufacturers?sort=' + sortOption);
     }
 
     public getManufacturer(id : number) : Observable<Manufacturer>{
