@@ -19,7 +19,9 @@ export class CarsComponent implements OnInit {
         "Manufacturer"
     ];
     sortOption: string = this.sortOptions[0];
-    show: string;
+    show: string = "all";
+    pages : number[];
+    page : number = 1;
 
     set SortOption(s: string) {
         this.sortOption = s;
@@ -40,6 +42,15 @@ export class CarsComponent implements OnInit {
         return this.show;
     }
 
+    set Page(p : number){
+        this.page = p;
+        this.ReloadCars();
+    }
+
+    get Page() : number{
+        return this.page;
+    }
+
     constructor(private CarSvc: CarService) { }
 
     ngOnInit() {
@@ -51,6 +62,12 @@ export class CarsComponent implements OnInit {
     }
 
     public ReloadCars() {
-        this.CarSvc.getCars(this.sortOption, this.show).subscribe(c => this.CarSvc.cars = c);
+        this.CarSvc.getCars(this.sortOption, this.show).subscribe(c => {
+            this.CarSvc.cars = c
+            this.pages = [];
+            for(var i = 1; i <= this.CarSvc.cars.length / 5; i++){
+                this.pages.push(i);
+            }
+        });
     }
 }

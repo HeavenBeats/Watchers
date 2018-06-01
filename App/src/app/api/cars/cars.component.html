@@ -2,17 +2,25 @@
   <div class="card-header">
     <div class="title-selector head-scrollable">
       <h4 class="card-title title" style="margin-bottom: 0%;">Cars</h4>
+      <br>
       <div>
-        <span>sort: </span>
-        <select name="sort" id="sort" [(ngModel)]="SortOption">
-          <option value="{{sort}}" *ngFor="let sort of sortOptions">{{sort}}</option>
-        </select>
-        <span>show only: </span>
-        <select name="show" id="show" [(ngModel)]="Show">
-          <option value="all">show all</option>
-          <option value="{{manufacturer.id}}" *ngFor="let manufacturer of CarSvc.manufacturers">{{manufacturer.name}}</option>
-        </select>
+        <div>
+          <span>sort: </span>
+          <select name="sort" id="sort" [(ngModel)]="SortOption">
+            <option value="{{sort}}" *ngFor="let sort of sortOptions">{{sort}}</option>
+          </select>
+        </div>
+        <div>
+          <span>show only: </span>
+          <select name="show" id="show" [(ngModel)]="Show">
+            <option value="all">show all</option>
+            <option value="{{manufacturer.id}}" *ngFor="let manufacturer of CarSvc.manufacturers">{{manufacturer.name}}</option>
+          </select>
+        </div>
       </div>
+      <select name="page" id="page" [(ngModel)]="Page">
+        <option value="{{page}}" *ngFor="let page of pages">Page {{page}}</option>
+      </select>
     </div>
   </div>
   <div class="card-body body-scrollable-small">
@@ -21,7 +29,7 @@
         <div class="col-md-9">
           <span>{{ car.model }}</span>
           <hr style="margin-top: 0%">
-          <ul class="description-small">
+          <ul class="description-small" style="margin-bottom: 0%">
             <li>Horsepower: {{car.horsePower}}</li>
             <li>Fuel usage: {{car.fuelConsumption}}L/100km</li>
             <li *ngIf="sortOption == 'Manufacturer'">manufactured by: {{ car.manufacturer.name }}</li>

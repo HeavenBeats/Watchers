@@ -16,6 +16,5 @@ export class EpisodesListComponent implements OnInit{
 
     public showEpisode(episode : number){
         this.SeasonSvc.setEpisode(episode);
-        console.log(this.SeasonSvc.episode.guest_stars)
     }
 }
