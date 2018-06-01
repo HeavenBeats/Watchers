@@ -2,6 +2,15 @@
   <div class="card-header">
     <div class="title-selector head-scrollable">
       <h4 class="card-title title" style="margin-bottom: 0%">Manufacturers</h4>
+      <div>
+        <span>sort: </span>
+        <select name="sort" id="sort" [(ngModel)]="SortOption">
+          <option value="{{sort}}" *ngFor="let sort of sortOptions">{{sort}}</option>
+        </select>
+      </div>
+      <select name="page" id="page" [(ngModel)]="Page">
+        <option value="{{page}}" *ngFor="let page of pages">Page {{page}}</option>
+      </select>
     </div>
   </div>
   <div class="card-body body-scrollable-small">
@@ -9,12 +18,17 @@
       <div class="row row-padding" *ngFor="let manufacturer of CarSvc.manufacturers" (click)="setManufacturer(manufacturer.id)">
         <div class="col-md-12">
           <span>{{ manufacturer.name }}</span>
-            <hr style="margin-top: 0%">
-            <ul class="description-small" style="margin-bottom: 0%">
-                <li>Founded in: {{manufacturer.foundedIn}}</li>
-                <li>Founded by: {{manufacturer.founder}}</li>
-                <li>last years profit: {{ manufacturer.lastYearProfit }} million euro</li>
-            </ul>
+          <hr style="margin-top: 0%">
+          <ul class="description-small" style="margin-bottom: 0%">
+              <li>Origin: {{manufacturer.origin}}</li>
+              <li>Founded in: {{manufacturer.foundedIn}}</li>
+              <li *ngIf="sortOption == 'Founder' || sortOption == 'Founded in'">Founced by: {{manufacturer.founder}}</li>
+              <li *ngIf="sortOption == 'Revenue'">Last years revenue: €{{manufacturer.lastYearRevenue | number}} million</li>
+              <li *ngIf="sortOption == 'Profit'">Last years profit: €{{manufacturer.lastYearProfit | number}} million</li>
+              <li *ngIf="sortOption == 'Origin' || sortOption == 'Name'">Homepage:
+                <a href="http://{{manufacturer.homePage}}">{{manufacturer.homePage}}</a>
+              </li>
+          </ul>
         </div>
       </div>
     </div>
