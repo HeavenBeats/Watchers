@@ -45,7 +45,7 @@ export class EditDetailComponent implements OnInit {
     constructor(private CarSvc: CarService) { }
 
     ngOnInit() {
-        this.CarSvc.getManufacturers().subscribe(m => this.manufacturers = m);
+        this.CarSvc.getManufacturers("Name").subscribe(m => this.manufacturers = m.manufacturerResults);
         setInterval(() => {
             if (this.CarSvc.car != null || this.CarSvc.manufacturer != null) {
                 this.newCar = false;
