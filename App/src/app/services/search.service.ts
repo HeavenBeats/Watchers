@@ -21,14 +21,16 @@ export class SearchService{
     set Search(s : string){
         this._search = s;
         this.getMovieList().subscribe(m => {
-            this.movies = m.results;
+            if(m.total_results >= 1)
+                this.movies = m.results;
             this.mTotalPages = [];
             for(var i = 0; i<m.total_pages; i++){
                 this.mTotalPages[i] = i;
             }
         });
         this.getSerieList().subscribe(s => {
-            this.series = s.results;
+            if(s.total_results >= 1)
+                this.series = s.results;
             this.sTotalPages = [];
             for(var i = 0; i<s.total_pages; i++){
                 this.sTotalPages[i] = i;
