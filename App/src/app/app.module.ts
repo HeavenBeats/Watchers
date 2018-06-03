@@ -34,16 +34,19 @@ import { CastService } from './services/cast.service';
 import { SeasonsService } from './services/seasons.service';
 import { CarService } from './services/car.service';
 
-let config = new AuthServiceConfig([
-  {
-    id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('608199425119-8qgi8dtetl1op6mnudku000kdrvvn37k.apps.googleusercontent.com')
-  },
-  {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('602228170135619')
-  }
-]);
+
+export function provideConfig(){
+  return new AuthServiceConfig([
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider('608199425119-8qgi8dtetl1op6mnudku000kdrvvn37k.apps.googleusercontent.com')
+    },
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider('602228170135619')
+    }
+  ]);
+}
 
 @NgModule({
   declarations: [
@@ -72,7 +75,7 @@ let config = new AuthServiceConfig([
     HttpClientModule,
     FormsModule,
     RoundProgressModule,
-    SocialLoginModule.initialize(config),
+    SocialLoginModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
@@ -93,7 +96,11 @@ let config = new AuthServiceConfig([
     CastService,
     SeasonsService,
     CarService,
-    AuthService
+    AuthService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ],
   bootstrap: [AppComponent]
 })
