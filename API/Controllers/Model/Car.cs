@@ -13,6 +13,7 @@ namespace Model{
         public int Seats { get; set; }                  //max amount of passengers
         public int StartingPrice { get; set; }
         public Manufacturer Manufacturer { get; set; }
+        public string imageUrl { get; set; }
     }
 
 }

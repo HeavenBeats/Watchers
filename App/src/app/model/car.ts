@@ -10,4 +10,5 @@ export interface Car {
     seats: number;
     startingPrice: number;
     manufacturer: Manufacturer;
+    imageUrl: string;
 }
