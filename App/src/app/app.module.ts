@@ -5,6 +5,7 @@ import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, AuthService } from "angular4-social-login";
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './navigation/navigation.component';
@@ -33,6 +34,17 @@ import { CastService } from './services/cast.service';
 import { SeasonsService } from './services/seasons.service';
 import { CarService } from './services/car.service';
 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('608199425119-8qgi8dtetl1op6mnudku000kdrvvn37k.apps.googleusercontent.com')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('602228170135619')
+  }
+]);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +72,7 @@ import { CarService } from './services/car.service';
     HttpClientModule,
     FormsModule,
     RoundProgressModule,
+    SocialLoginModule.initialize(config),
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
@@ -79,7 +92,8 @@ import { CarService } from './services/car.service';
     SearchService,
     CastService,
     SeasonsService,
-    CarService
+    CarService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
