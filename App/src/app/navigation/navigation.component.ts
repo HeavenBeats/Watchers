@@ -10,11 +10,21 @@ import { AuthService, SocialUser } from 'angular4-social-login';
 export class NavComponent {
   private user: SocialUser;
   private loggedIn: boolean;
+  search : string;
+
+  get Search() : string{
+    return this.search;
+  }
+
+  set Search(s : string){
+    this.search = s;
+  }
 
   constructor(private router : Router, private authService: AuthService){}
 
-  public submit(search : string){
-    this.router.navigate(['/search', search]);
+  public submit(){
+    this.router.navigate(['/search', this.search]);
+    this.search = "";
   }  
 
   ngOnInit() {

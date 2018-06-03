@@ -12,8 +12,8 @@
                 </li>
             </ul>
 
-            <form class="form-inline waves-light" (keyup.enter)="submit(search.value)" *ngIf="loggedIn">
-                    <input #search class="form-control mr-sm-2" type="text" placeholder="Search" style="margin-bottom: 0">
+            <form class="form-inline waves-light" (keyup.enter)="submit()" *ngIf="loggedIn">
+                    <input name="search" class="form-control mr-sm-2" type="text" placeholder="Search" style="margin-bottom: 0" [(ngModel)]="Search">
             </form>
 
             <div class="btn-group dropdown" *ngIf="loggedIn" dropdown>
