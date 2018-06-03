@@ -1,10 +1,21 @@
+.container-fluid{
+    position: relative;
+}
 #login{
     width: 20%;
+    height: 30%;
     margin: auto;
-    margin-top: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0%;
 }
 #google-btn{
-    padding: 5%;
+    padding: 2%;
+    display: block;
+    margin: auto;
 }
 #google-img{
     display: inline;

@@ -1,9 +1,9 @@
-<div class="card" id="login">
-    <div class="card-body text-center">
-        <h4 class="card-title"> LOGIN </h4>
-            <a href="/googleLogin"><div id="google-btn" class="btn btn-primary waves-light">
-                <img id="google-img" src="../../assets/btn_google_light_normal_ios.svg">
-                <span id="google-text">Sign in with Google</span>
-            </div></a>
-    </div>
+<div class="container-fluid" [style.background-image]='getBackground()' style="height: 92vh; background-size: cover">
+  <div class="card" id="login">
+    <div class="card-body text-center" style="padding-left: 1%; padding-right: 1%">
+      <h4 class="card-title"> LOGIN </h4>
+        <button class="btn btn-primary btn-sm waves-light" style="padding: 0" (click)="signInWithGoogle()"><img src="../../assets/btn_google_signin_dark_normal_web.png" alt="google login button"></button>
+      <button class="btn btn-primary btn-sm waves-light" style="padding: 0; max-width: 200px;" (click)="signInWithFB()"><img src="../../assets/facebook-sign-in-button-png-26.png" alt="google login button"></button>
+ </div>
+  </div>
 </div>
