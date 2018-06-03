@@ -6,7 +6,7 @@ This project was created with [Angular CLI](https://github.com/angular/angular-c
 ## Run the project
 
 * API   
-    * Open API map in VScode and press F5 or go to Debug > Start Debuggin
+    * Open API map in VScode and press F5 or go to Debug > Start Debugging
 * Web application
     * open two terminals in /App
     * run `npm run build` in one terminal
