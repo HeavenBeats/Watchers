@@ -41,7 +41,7 @@ namespace Model{
                     HorsePower = 450,
                     Engine = "3.5L V6 EcoBoost engine",
                     FuelConsumption = 15.6,
-                    PowerSource = PowerSource.Benzine,
+                    PowerSource = "Benzine",
                     Seats = 5,
                     StartingPrice = 42889,
                     Manufacturer = Ford
@@ -52,7 +52,7 @@ namespace Model{
                     HorsePower = 426,
                     Engine = "GT 5.0 V8",
                     FuelConsumption = 12.4,
-                    PowerSource = PowerSource.Benzine,
+                    PowerSource = "Benzine",
                     Seats = 2,
                     StartingPrice = 25220,
                     Manufacturer = Ford
@@ -63,7 +63,7 @@ namespace Model{
                     HorsePower = 231,
                     Engine = "3-cilinder 1.5L with 2-trap automatic electromotor",
                     FuelConsumption = 1.9,
-                    PowerSource = PowerSource.Hybrid,
+                    PowerSource = "Hybrid",
                     Seats = 2,
                     StartingPrice = 148500,
                     Manufacturer = BMW
@@ -74,7 +74,7 @@ namespace Model{
                     HorsePower = 431,
                     Engine = "3.0 L S55B30T0 twin turbo I6",
                     FuelConsumption = 8.5,
-                    PowerSource = PowerSource.Diesel,
+                    PowerSource = "Diesel",
                     Seats = 4,
                     StartingPrice = 58790,
                     Manufacturer = BMW
@@ -85,7 +85,7 @@ namespace Model{
                     HorsePower = 170,
                     Engine = "33 kWh accu",
                     FuelConsumption = 0,
-                    PowerSource = PowerSource.Electric,
+                    PowerSource = "Electric",
                     Seats = 5,
                     StartingPrice = 38800,
                     Manufacturer = BMW
@@ -96,7 +96,7 @@ namespace Model{
                     HorsePower = 190,
                     Engine = "2.3L turbodiesel",
                     FuelConsumption = 6.4,
-                    PowerSource = PowerSource.Diesel,
+                    PowerSource = "Diesel",
                     Seats = 5,
                     StartingPrice = 33585,
                     Manufacturer = Nissan
@@ -107,7 +107,7 @@ namespace Model{
                     HorsePower = 570,
                     Engine = "VR38 TWIN-TURBO",
                     FuelConsumption = 11.8,
-                    PowerSource = PowerSource.Benzine,
+                    PowerSource = "Benzine",
                     Seats = 2,
                     StartingPrice = 99900,
                     Manufacturer = Nissan
