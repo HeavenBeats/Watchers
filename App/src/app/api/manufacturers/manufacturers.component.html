@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header">
     <div class="title-selector head-scrollable">
-      <h4 class="card-title title" style="margin-bottom: 0%">Manufacturers</h4>
+      <h4 class="card-title title" style="margin-bottom: 0%">Manufacturers <i class="fa fa-refresh" (click)="ReloadManufacturers()"></i></h4>
       <div>
         <span>sort: </span>
         <select name="sort" id="sort" [(ngModel)]="SortOption">
