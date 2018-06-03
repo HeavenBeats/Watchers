@@ -2,8 +2,8 @@
         <logo>
             <a class="logo navbar-brand" href="#"><strong>Watchers</strong></a>
         </logo>
-        <links>
-            <ul class="navbar-nav mr-auto">
+        <links >
+            <ul class="navbar-nav mr-auto" *ngIf="loggedIn">
                 <li class="nav-item" [routerLinkActive]="['active']">
                     <a [routerLink]="['/home']" class="nav-link waves-light" mdbRippleRadius>Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -12,8 +12,17 @@
                 </li>
             </ul>
 
-            <form class="form-inline waves-light" (keyup.enter)="submit(search.value)">
+            <form class="form-inline waves-light" (keyup.enter)="submit(search.value)" *ngIf="loggedIn">
                     <input #search class="form-control mr-sm-2" type="text" placeholder="Search" style="margin-bottom: 0">
             </form>
+
+            <div class="btn-group dropdown" *ngIf="loggedIn" dropdown>
+            <button dropdownToggle type="button" class="btn btn-elegant dropdown-toggle waves-light btn-sm" mdbWavesEffect>
+              <i class="fa fa-power-off"></i>
+            </button>
+            <div class="dropdown-menu" style="right: 0; left: auto;">
+              <a class="dropdown-item" (click)="Logout()">Logout</a>
+            </div>
+          </div>
         </links>
     </mdb-navbar>
