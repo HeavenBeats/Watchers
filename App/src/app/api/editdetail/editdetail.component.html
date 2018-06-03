@@ -16,26 +16,32 @@
         <button type="button" class="btn btn-primary waves-light header-btn" (click)="SaveCar('create')" *ngIf="newCar">Save</button>
         <button type="button" class="btn btn-primary waves-light header-btn" (click)="SaveManufacturer('create')" *ngIf="newManufacturer">Save</button>
         <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveCar('update')" *ngIf="CarSvc.car && editingCar">Save</button>
-        <button type="button" class="btn btn-danger waves-light header-btn" (click)="DeleteCar()" *ngIf="CarSvc.car && !editingCar"><i class="fa fa-trash"></i></button>
-        <button type="button" class="btn btn-danger waves-light header-btn" (click)="DeleteManufacturer()" *ngIf="CarSvc.manufacturer && !editingManufacturer"><i class="fa fa-trash"></i></button>
-        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.car && !editingCar" (click)="EditingCar()" title="Edit" mdbWavesEffect>
+        <button type="button" class="btn btn-danger waves-light header-btn" (click)="DeleteCar()" *ngIf="CarSvc.car && !editingCar">
+          <i class="fa fa-trash"></i>
+        </button>
+        <button type="button" class="btn btn-danger waves-light header-btn" (click)="DeleteManufacturer()" *ngIf="CarSvc.manufacturer && !editingManufacturer">
+          <i class="fa fa-trash"></i>
+        </button>
+        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.car && !editingCar" (click)="EditingCar()"
+          title="Edit" mdbWavesEffect>
           <i class="fa fa-pencil"></i>
         </button>
         <button type="submit" class="btn btn-primary waves-light header-btn" (click)="SaveManufacturer('update')" *ngIf="CarSvc.manufacturer && editingManufacturer">Save</button>
-        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.manufacturer && !editingManufacturer" (click)="EditingManufacturer()" title="Edit"
-          mdbWavesEffect>
+        <button type="button" class="btn btn-blue-grey waves-light header-btn" *ngIf="CarSvc.manufacturer && !editingManufacturer"
+          (click)="EditingManufacturer()" title="Edit" mdbWavesEffect>
           <i class="fa fa-pencil"></i>
         </button>
-        <button type="button" class="btn btn-danger waves-light header-btn" (click)="Cancel()" title="Cancel" *ngIf="editingCar || editingManufacturer || newCar || newManufacturer"><i class="fa fa-close"></i></button>
+        <button type="button" class="btn btn-danger waves-light header-btn" (click)="Cancel()" title="Cancel" *ngIf="editingCar || editingManufacturer || newCar || newManufacturer">
+          <i class="fa fa-close"></i>
+        </button>
       </div>
     </div>
   </div>
   <!--Detail info about car-->
   <div class="card-body body-scrollable-full">
     <div class="card-block" *ngIf="CarSvc.car && !editingCar">
-      <!--<img class="img-fill" src="https://image.tmdb.org/t/p/w500{{SeasonSvc.episode.still_path}}" alt="{{SeasonSvc.episode.name}} poster"
-        style="margin-left: -2em">
-      <br>
+      <img class="img-fill" src="{{CarSvc.car.imageUrl}}" alt="{{CarSvc.car.model}} poster">
+      <!--<br>
       <br>-->
       <h4>{{CarSvc.car.model}}</h4>
       <hr>
@@ -56,18 +62,20 @@
               style="margin-left: -2em">
             <br>
             <br>-->
-      <div class="md-form" >
+      <div class="md-form">
         Model:
         <input type="text" id="model" [(ngModel)]="EditCar.model" value="{{CarSvc.car.model}}" class="form-control" mdbInputDirective> HorsePower:
         <input type="number" id="horsePower" [(ngModel)]="EditCar.horsePower" value="{{CarSvc.car.horsePower}}" class="form-control"
           mdbInputDirective> Engine:
         <input type="text" id="engine" [(ngModel)]="EditCar.engine" value="{{CarSvc.car.engine}}" class="form-control" mdbInputDirective> Fuel usage:
-        <input type="number" step="0.1" id="fuelConsumption" [(ngModel)]="EditCar.fuelConsumption" value="{{CarSvc.car.fuelConsumption}}" class="form-control"
-          mdbInputDirective> Power source:
+        <input type="number" step="0.1" id="fuelConsumption" [(ngModel)]="EditCar.fuelConsumption" value="{{CarSvc.car.fuelConsumption}}"
+          class="form-control" mdbInputDirective> Power source:
         <input type="text" id="powerSource" [(ngModel)]="EditCar.powerSource" value="{{CarSvc.car.powerSource}}" class="form-control"
           mdbInputDirective> Seats:
         <input type="number" id="seats" [(ngModel)]="EditCar.seats" value="{{CarSvc.car.seats}}" class="form-control" mdbInputDirective> Starting price:
         <input type="number" id="startingPrice" [(ngModel)]="EditCar.startingPrice" value="{{CarSvc.car.startingPrice}}" class="form-control"
+          mdbInputDirective> Image url:
+        <input type="text" id="imgUrl" [(ngModel)]="EditCar.imageUrl" value="{{CarSvc.car.imageUrl}}" class="form-control"
           mdbInputDirective> Manufacturer:
         <select name="manufacturer" id="manufacturer" [(ngModel)]="ManId">
           <option value="{{man.id}}" *ngFor="let man of manufacturers">{{man.name}}</option>
